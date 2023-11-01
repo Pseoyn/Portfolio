@@ -1,0 +1,341 @@
+@import url("https://fonts.googleapis.com/css2?family=Merriweather:wght@300&family=Playpen+Sans:wght@300&display=swap");
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+ul, ol, li {
+  list-style: 0;
+}
+
+a {
+  text-decoration: none;
+  color: #333;
+}
+
+@font-face {
+  font-family: "omyu_pretty";
+  src: url("https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2304-01@1.0/omyu_pretty.woff2") format("woff2");
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: "GangwonEdu_OTFBoldA";
+  src: url("https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2201-2@1.0/GangwonEdu_OTFBoldA.woff") format("woff");
+  font-weight: normal;
+  font-style: normal;
+}
+.circle {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  background-color: white;
+  transform: translate(-50%, -50%);
+  z-index: 999;
+  transition: all 1 ease-out;
+  mix-blend-mode: difference;
+}
+
+#wrap {
+  width: 100vw;
+}
+#wrap #loading_wave {
+  position: relative;
+}
+#wrap #loading_wave #loading {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-image: url("/img/loading.jpg");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  width: 100%;
+  height: 100vh;
+  margin: 0 auto;
+}
+#wrap #loading_wave #loading .loading_img {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 8%;
+  position: relative;
+  top: -20%;
+  right: -18%;
+  backface-visibility: visible !important;
+  -webkit-animation-name: flipIn;
+  animation-duration: 1.3s;
+  animation-fill-mode: both;
+}
+#wrap #loading_wave #loading .loading_img > img {
+  width: 100%;
+  position: absolute;
+}
+#wrap #loading_wave #loading_texts {
+  -webkit-font-smoothing: antialiased;
+  position: absolute;
+  top: 50%;
+  right: 20%;
+}
+#wrap #loading_wave #loading_texts > h1 {
+  font-family: "GangwonEdu_OTFBoldA";
+  src: url("https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2201-2@1.0/GangwonEdu_OTFBoldA.woff") format("woff");
+  font-weight: normal;
+  font-style: normal;
+  height: 100%;
+  font-size: 50px;
+}
+#wrap #loading_wave #loading_texts > h1 > span {
+  position: relative;
+  top: 50px;
+  display: inline-block;
+  animation: bounce 0.3s ease infinite alternate;
+  color: rgb(0, 0, 0);
+  text-shadow: 0 1px 0 #000000, 0 2px 0 #000000, 0 3px 0 #CCC, 0 4px 0 #CCC, 0 5px 0 #CCC, 0 6px 0 transparent, 0 7px 0 transparent, 0 8px 0 transparent, 0 9px 0 transparent, 0 10px 10px rgba(0, 0, 0, 0.4);
+}
+#wrap #loading_wave #loading_texts > h1 > span:nth-child(2) {
+  animation-delay: 0.1s;
+}
+#wrap #loading_wave #loading_texts > h1 > span:nth-child(3) {
+  animation-delay: 0.2s;
+}
+#wrap #loading_wave #loading_texts > h1 > span:nth-child(4) {
+  animation-delay: 0.3s;
+}
+#wrap #loading_wave #loading_texts > h1 > span:nth-child(5) {
+  animation-delay: 0.4s;
+}
+#wrap #loading_wave #loading_texts > h1 > span:nth-child(6) {
+  animation-delay: 0.5s;
+}
+#wrap #loading_wave #loading_texts > h1 > span:nth-child(7) {
+  animation-delay: 0.6s;
+}
+#wrap #loading_wave #loading_texts > h1 > span:nth-child(8) {
+  animation-delay: 0.7s;
+}
+#wrap #loading_wave #loading_texts > h1 > span:nth-child(9) {
+  animation-delay: 0.8s;
+}
+@keyframes bounce {
+  100% {
+    top: 5px;
+    text-shadow: 0 1px 0 #CCC, 0 2px 0 #CCC, 0 3px 0 #CCC, 0 4px 0 #CCC, 0 5px 0 #CCC, 0 6px 0 #CCC, 0 7px 0 #CCC, 0 8px 0 #CCC, 0 9px 0 #CCC, 0 50px 25px rgba(0, 0, 0, 0.2);
+  }
+}
+@keyframes flipIn {
+  0% {
+    transform: perspective(1000px) rotate3d(0, 1, 0, 90deg);
+    transition-timing-function: ease-in;
+  }
+  40% {
+    transform: perspective(1000px) rotate3d(0, 1, 0, -20deg);
+    transition-timing-function: ease-in;
+  }
+  60% {
+    transform: perspective(1000px) rotate3d(0, 1, 0, 0deg);
+    opacity: 1;
+  }
+  80% {
+    transform: perspective(1000px) rotate3d(0, 1, 0, -5deg);
+  }
+  100% {
+    transform: perspective(1000px);
+  }
+}
+#wrap #body_wrap {
+  display: none;
+}
+#wrap #body_wrap > header {
+  position: relative;
+  background: url("/img/background.jpg") fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+#wrap #body_wrap > header #headers {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  width: 1400px;
+  height: 963px;
+  margin: 0 auto;
+}
+#wrap #body_wrap > header #headers #profile {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-flow: column wrap;
+  width: 450px;
+  height: 700px;
+}
+#wrap #body_wrap > header #headers #profile #p_img {
+  width: 400px;
+  height: 500px;
+  background-color: gold;
+  border-radius: 195px 195px 10px 10px;
+  margin-bottom: 20px;
+  position: relative;
+  border: 5px double black;
+}
+#wrap #body_wrap > header #headers #profile #p_img > img {
+  position: absolute;
+}
+#wrap #body_wrap > header #headers #profile #p_text {
+  width: 400px;
+  height: 100px;
+  border: 5px solid black;
+  border-radius: 10px;
+}
+#wrap #body_wrap > header #boards {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  align-content: space-around;
+  flex-direction: column;
+  width: 600px;
+  height: 963px;
+  position: relative;
+}
+#wrap #body_wrap > header #boards .board {
+  position: absolute;
+  width: 400px;
+  height: 100px;
+  border: black inset 5px;
+}
+#wrap #body_wrap > header #boards .board1 {
+  transform: rotate(0deg);
+  top: 150px;
+  left: 50px;
+}
+#wrap #body_wrap > header #boards .board2 {
+  transform: rotate(-5deg);
+  top: 280px;
+  right: 50px;
+}
+#wrap #body_wrap > header #boards .board3 {
+  transform: rotate(7deg);
+  top: 420px;
+  left: 50px;
+}
+#wrap #body_wrap > header #boards .board4 {
+  transform: rotate(-2deg);
+  top: 560px;
+}
+#wrap #body_wrap #projects {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100vh;
+  position: relative;
+}
+#wrap #body_wrap #projects #content {
+  width: 550px;
+  height: 900px;
+  background-color: tomato;
+}
+#wrap #body_wrap #projects #view {
+  width: 1300px;
+  height: 900px;
+  background-color: pink;
+}
+#wrap footer {
+  width: 100%;
+  height: 100vh;
+}
+#wrap footer > section {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+#wrap footer > section #information {
+  width: 400px;
+  height: 100px;
+  background-color: gold;
+}
+#wrap footer > section #rogram {
+  width: 800px;
+  height: 600px;
+  background-color: pink;
+}
+
+#only_box {
+  width: 100%;
+  position: fixed;
+  z-index: 999;
+  bottom: 0;
+}
+
+.only_wave {
+  position: absolute;
+  width: 100%;
+  height: 150px;
+  overflow: hidden;
+  bottom: 0;
+}
+.only_wave .wave {
+  position: absolute;
+  left: 0;
+  width: 100%;
+  height: 100px;
+  background-image: url("/img/wave_black.png");
+  background-size: 1000px 100px;
+}
+.only_wave .wave1 {
+  animation: animate 30s linear infinite;
+  z-index: 1000;
+  opacity: 1;
+  animation-delay: 0s;
+  bottom: 0;
+}
+.only_wave .wave2 {
+  animation: animate2 15s linear infinite;
+  z-index: 999;
+  opacity: 0.5;
+  animation-delay: -5s;
+  bottom: 10px;
+}
+.only_wave .wave3 {
+  animation: animate 30s linear infinite;
+  z-index: 998;
+  opacity: 0.2;
+  animation-delay: -2s;
+  bottom: 15px;
+}
+.only_wave .wave4 {
+  animation: animate2 5s linear infinite;
+  z-index: 997;
+  opacity: 0.7;
+  animation-delay: -5s;
+  bottom: 20px;
+}
+
+@keyframes animate {
+  0% {
+    background-position-x: 0;
+  }
+  100% {
+    background-position-x: 1000px;
+  }
+}
+@keyframes animate2 {
+  0% {
+    background-position-x: 0;
+  }
+  100% {
+    background-position-x: -1000px;
+  }
+}
+.wave_box {
+  width: 100%;
+  height: 100vh;
+  background-color: white;
+  position: absolute;
+  z-index: 500;
+}
