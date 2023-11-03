@@ -39,10 +39,30 @@ window.onload = function () {
 		document.querySelector("#body_wrap").style.display = "block";
 	});
 
+	//font
+	function setTextAnimation(delay, duration, strokeWidth, timingFunction, strokeColor,repeat) {
+		let paths = document.querySelectorAll("path");
+		let mode=repeat?'infinite':'forwards'
+		for (let i = 0; i < paths.length; i++) {
+			const path = paths[i];
+			const length = path.getTotalLength();
+			path.style["stroke-dashoffset"] = `${length}px`;
+			path.style["stroke-dasharray"] = `${length}px`;
+			path.style["stroke-width"] = `${strokeWidth}px`;
+			path.style["stroke"] = `${strokeColor}`;
+			path.style["animation"] = `${duration}s svg-text-anim ${mode} ${timingFunction}`;
+			path.style["animation-delay"] = `${i * delay}s`;
+		}
+	}
+	setTextAnimation(0.1, 3, 3, 'ease-in-out', '#000000', true);
 
 
 
 
+
+
+
+	//project menu 호버하면 잉크 쏟은 느낌으로 svg 활용하고 동시에 hand png 가 바뀌면서 말풍선 oops 추가하면 괜찮지 않
 }
 
 

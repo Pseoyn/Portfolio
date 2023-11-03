@@ -15,19 +15,93 @@
 	font-style: normal;
 }
 
+body {
+	background-image: url("/img/background_2.jpg");
+	background-position: center;
+	background-repeat: no-repeat;
+	background-size: cover;
+}
+
+#svg_textBox {
+	width: 100%;
+	height: 350px;
+	overflow: hidden;
+	position: relative;
+
+	.first_textBox {
+		position: absolute;
+		z-index: 1;
+		top: 20px;
+		left: 20px;
+
+	}
+
+	#second_textBox {
+		position: absolute;
+		left: 150px;
+		top: 200px;
+		z-index: 1;
+	}
+
+	>img {
+		position: absolute;
+		width: 800px;
+		height: 600px;
+		right: -100px;
+		top: -100px;
+	}
+}
+
+@-webkit-keyframes svg-text-anim {
+	40% {
+		stroke-dashoffset: 0;
+		fill: transparent;
+	}
+
+	60% {
+		stroke-dashoffset: 0;
+		fill: #000000;
+	}
+
+	100% {
+		stroke-dashoffset: 0;
+		fill: #000000;
+	}
+
+}
+
+/* Most browsers */
+@keyframes svg-text-anim {
+	40% {
+		stroke-dashoffset: 0;
+		fill: transparent;
+	}
+
+	60% {
+		stroke-dashoffset: 0;
+		fill: #000000;
+	}
+
+	100% {
+		stroke-dashoffset: 0;
+		fill: #000000;
+	}
+
+}
+
 #wrap {
-	width: 100vw;
+	width: 100%;
 
 	//로딩
 	#loading_wave {
-		position: relative;
+		background-image: url("/img/loading.jpg");
+		background-position: center;
+		background-repeat: no-repeat;
+		background-size: cover;
+		display: block;
 
 		#loading {
 			@include flex(center, center);
-			background-image: url("/img/loading.jpg");
-			background-position: center;
-			background-repeat: no-repeat;
-			background-size: cover;
 			width: 100%;
 			height: 100vh;
 			margin: 0 auto;
@@ -175,142 +249,124 @@
 	#body_wrap {
 		width: 100%;
 		display: none;
-		> header {
+
+		#headers {
 			@include flex(center, center);
-			// @include flex(center, center);
 			width: 100%;
-			position: relative;
-			background: url("/img/background.jpg") fixed;
-			background-position: center;
-			background-repeat: no-repeat;
-			background-size: cover;
-			
+			height: 1000px;
+			background-color: white;
 
-			#headers {
+			#profile {
 				@include flex(center, center);
-				// background: rgb(0,143,122);
-				// background: linear-gradient(20deg, rgba(0,143,122,1) 0%, rgba(0,142,155,1) 12%, rgba(0,137,186,1) 27%, rgba(44,115,210,1) 37%, rgba(132,94,194,1) 81%);
-
-				width: 1400px;
-				height: 100vh;
-
-
-				#profile {
-					@include flex(center, center);
-					flex-flow: column wrap;
-					position: relative;
-					width: 450px;
-					height: 700px;
-					background-color: tomato;
-
-					#p_img {
-						width: 400px;
-						height: 500px;
-						background-color: gold;
-						border-radius: 195px 195px 0 0;
-						margin-bottom: 20px;
-						//hover 시 자기소개, 이미지 변환
-
-						>img {
-							position: absolute;
-						}
-					}
-
-					#p_text {
-						width: 400px;
-						height: 100px;
-						background-color: blue;
-					}
-				}
-
-			}
-
-			//
-
-			#boards {
-				@include flex(space-around, center);
-				align-content: space-around;
 				flex-direction: column;
 				width: 600px;
-				height: 963px;
-				// background-color: white;
+				height: 800px;
+				background-color: pink;
 
+				#p_img {
+					width: 550px;
+					height: 600px;
+					// background-color: blue;
+					border-radius: 49% 49% 0 0;
+					border: double 8px black;
+					margin-bottom: 15px;
+				}
+
+				#p_textBox {
+					width: 550px;
+					height: 150px;
+					background-color: white;
+					border: double 8px black;
+				}
+			}
+
+			#boards {
+				@include flex(center, center);
+				flex-direction: column;
+				width: 800px;
+				height: 800px;
+				background-color: gray;
 
 				.board {
-					position: absolute;
-					width: 400px;
+					width: 500px;
 					height: 100px;
 					background-color: brown;
-
-
-					&1 {
-						transform: rotate(0deg);
-						top: 150px;
-						left: 50px;
-					}
-
-					&2 {
-						transform: rotate(-5deg);
-						top: 280px;
-						right: 50px;
-					}
-
-					&3 {
-						transform: rotate(7deg);
-						top: 420px;
-						left: 50px;
-					}
-
-					&4 {
-						transform: rotate(-2deg);
-						top: 560px;
-					}
+					margin-bottom: 10px;
+					margin-top: 10px;
 				}
 			}
 		}
 
-		#projects {
-			@include flex(center, center);
-			width: 100%;
-			height: 100vh;
-			position: relative;
 
-			#content {
-				width: 550px;
+		#hand {
+			position: fixed;
+			width: 600px;
+			height: 600%;
+			top: 400px;
+			right: 0;
+
+			>img {
+				width: 100%;
+				position: absolute;
+			}
+		}
+
+		#projects_wrapper {
+			@include flex(normal, normal);
+			flex-wrap: nowrap;
+			width: 400%;
+			height: 100%;
+            display: flex;
+            background-color: pink;
+
+			#menu {
+				width: 400px;
 				height: 900px;
 				background-color: tomato;
 			}
 
-			#view {
-				width: 1300px;
-				height: 900px;
-				background-color: pink;
+			.project {
+				@include flex(center, center);
+				width: 100%;
+				height: 100vh;
+				background-color: greenyellow;
+				position: relative;
+				overflow: hidden;
+			
+				.view {
+					width: 1400px;
+					height: 900px;
+					background-color: gold;
+					border: 4px solid black;
+				}
 			}
 		}
-	}
 
-	footer {
-		//마지막엔 wave가 아닌 물방울로 
-		width: 100%;
-		height: 100vh;
+		footer {
+			//마지막엔 wave가 아닌 물방울로 
+			width: 100%;
+			height: 100vh;
 
-		>section {
-			@include flex(center, center);
-			flex-direction: column;
+			>section {
+				@include flex(center, center);
+				flex-direction: column;
 
-			#information {
-				width: 400px;
-				height: 100px;
-				background-color: gold;
-			}
+				#information {
+					width: 400px;
+					height: 100px;
+					background-color: gold;
+				}
 
-			#rogram {
-				width: 800px;
-				height: 600px;
-				background-color: pink;
+				#rogram {
+					width: 800px;
+					height: 600px;
+					background-color: pink;
+				}
 			}
 		}
+
 	}
+
 
 	//
 }
@@ -320,8 +376,16 @@
 #only_box {
 	width: 100%;
 	position: fixed;
+	z-index: 100;
+
+}
+
+.wave_box {
+	width: 100%;
+	height: 100vh;
+	background-color: black;
+	position: absolute;
 	z-index: 999;
-	top: 0;
 }
 
 .only_wave {
@@ -329,21 +393,23 @@
 	width: 100%;
 	height: 150px;
 	// background: #3386ff;
-	overflow: hidden;
+	// overflow: hidden;
 	bottom: 0;
+
+
 
 	//wave 참고 : https://www.youtube.com/watch?v=MMNEEdGa5eE
 	.wave {
 		position: absolute;
 		left: 0;
 		width: 100%;
-		height: 100px;
+		height: 70px;
 
 		//svg > css 링크로 변환 사이트 : https://yoksel.github.io/url-encoder
 		// background-image: url("data:image/svg+xml, %3Csvg data-name='Layer 1' xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1200 120' preserveAspectRatio='none'%3E%3Cpath d='M321.39,56.44c58-10.79,114.16-30.13,172-41.86,82.39-16.72,168.19-17.73,250.45-.39C823.78,31,906.67,72,985.66,92.83c70.05,18.48,146.53,26.09,214.34,3V0H0V27.35A600.21,600.21,0,0,0,321.39,56.44Z' class='shape-fill'%3E%3C/path%3E%3C/svg%3E");
 
 		background-image: url("/img/wave_black.png");
-		background-size: 1000px 100px;
+		background-size: 1000px 70px;
 
 		&1 {
 			animation: animate 30s linear infinite;
@@ -402,14 +468,11 @@
 	}
 }
 
-.wave_box {
-	width: 100%;
-	height: 100vh;
-	background-color: black;
-	position: absolute;
-	z-index: 500;
-}
 
+
+//particle : https://codepen.io/Paolo-Duzioni/pen/MQmbJo
+
+//setting
 $particle-count: 200;
 $particle-size: 10px;
 $particle-distance: 600px;
@@ -417,7 +480,6 @@ $particle-min-speed: 17000; // ms
 $particle-max-speed: 20000; // ms
 $particle-max-delay: 15000; // ms
 
-//particle : https://codepen.io/Paolo-Duzioni/pen/MQmbJo
 .particle-container {
 	position: absolute;
 	bottom: 0;

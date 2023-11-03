@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        #projects_wrapper {
+            width: 900%;
+            overscroll-behavior: none;
+            height: 100%;
+            display: flex;
+            flex-wrap: nowrap;
+            background-color: pink;
+        }
+
+        .project {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 100%;
+            height: 100vh;
+            background-color: pink;
+            position: relative;
+            overflow: hidden;
+        }
+
+
+        .view {
+            width: 1400px;
+            height: 900px;
+            background-color: gold;
+            border: 4px solid black;
+        }
+
+        #menu {
+            width: 400px;
+            height: 900px;
+            background-color: tomato;
+            z-index: 1;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="projects_wrapper">
+        <div id="menu"></div>
+
+        <div class="project project1">
+            <div class="view"></div>
+            <div class="v_textBox"></div>
+        </div>
+
+        <div class="project project2">
+            <div class="view"></div>
+            <div class="v_textBox"></div>
+        </div>
+
+        <div class="project project3">
+            <div class="view"></div>
+            <div class="v_textBox"></div>
+        </div>
+
+        <div class="project project4">
+            <div class="view"></div>
+            <div class="v_textBox"></div>
+        </div>
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.5/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.5/ScrollTrigger.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.1/ScrollToPlugin.min.js"></script>
+    <script>
+        gsap.registerPlugin(ScrollTrigger);
+
+        let sections = gsap.utils.toArray(".project");
+
+gsap.to(sections, {
+    xPercent: -100 * (sections.length - 1),
+    ease: "none",
+    scrollTrigger: {
+        trigger: "#projects_wrapper",
+        pin: true,
+        scrub: 1,
+        snap: 1 / (sections.length - 1),
+        end: "+=7000",
+        // end: document.querySelector("#parallax__cont").offsetWidth,
+    }
+});
+    </script>
+
+</body>
+
+</html>
