@@ -1,0 +1,1367 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+ul, ol, li {
+  list-style: 0;
+}
+
+a {
+  text-decoration: none;
+  color: #333;
+}
+
+@font-face {
+  font-family: "GangwonEdu_OTFBoldA";
+  src: url("https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2201-2@1.0/GangwonEdu_OTFBoldA.woff") format("woff");
+  font-weight: normal;
+  font-style: normal;
+}
+body {
+  background-image: url("/img/background_2.jpg");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+#wrap {
+  width: 100vw;
+}
+#wrap #loading-wrap {
+  background-image: url("/img/loading.jpg");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  display: block;
+}
+#wrap #loading-wrap #loading-imgBox {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100vh;
+}
+#wrap #loading-wrap #loading-imgBox .loading-img {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 12%;
+  top: -20%;
+  right: -18%;
+  position: relative;
+  backface-visibility: visible !important;
+  -webkit-animation-name: flipIn;
+  animation-duration: 1.3s;
+  animation-fill-mode: both;
+}
+#wrap #loading-wrap #loading-imgBox .loading-img > img {
+  width: 100%;
+  position: absolute;
+}
+#wrap #loading-wrap #loading-textBox {
+  top: 55%;
+  right: 21%;
+  position: absolute;
+  -webkit-font-smoothing: antialiased;
+}
+#wrap #loading-wrap #loading-textBox > h1 {
+  font-family: "GangwonEdu_OTFBoldA";
+  src: url("https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2201-2@1.0/GangwonEdu_OTFBoldA.woff") format("woff");
+  font-weight: normal;
+  font-style: normal;
+  height: 100%;
+  font-size: 50px;
+}
+#wrap #loading-wrap #loading-textBox > h1 > span {
+  top: 50px;
+  display: inline-block;
+  position: relative;
+  animation: bounce 0.3s ease infinite alternate;
+  color: rgb(0, 0, 0);
+  text-shadow: 0 1px 0 #000000, 0 2px 0 #000000, 0 3px 0 #CCC, 0 4px 0 #CCC, 0 5px 0 #CCC, 0 6px 0 transparent, 0 7px 0 transparent, 0 8px 0 transparent, 0 9px 0 transparent, 0 10px 10px rgba(0, 0, 0, 0.4);
+}
+#wrap #loading-wrap #loading-textBox > h1 > span:nth-child(2) {
+  animation-delay: 0.1s;
+}
+#wrap #loading-wrap #loading-textBox > h1 > span:nth-child(3) {
+  animation-delay: 0.2s;
+}
+#wrap #loading-wrap #loading-textBox > h1 > span:nth-child(4) {
+  animation-delay: 0.3s;
+}
+#wrap #loading-wrap #loading-textBox > h1 > span:nth-child(5) {
+  animation-delay: 0.4s;
+}
+#wrap #loading-wrap #loading-textBox > h1 > span:nth-child(6) {
+  animation-delay: 0.5s;
+}
+#wrap #loading-wrap #loading-textBox > h1 > span:nth-child(7) {
+  animation-delay: 0.6s;
+}
+#wrap #loading-wrap #loading-textBox > h1 > span:nth-child(8) {
+  animation-delay: 0.7s;
+}
+#wrap #loading-wrap #loading-textBox > h1 > span:nth-child(9) {
+  animation-delay: 0.8s;
+}
+#wrap #body-wrap {
+  display: none;
+}
+#wrap #body-wrap > header {
+  position: relative;
+}
+#wrap #body-wrap > header #svg-textWrap {
+  width: 100%;
+  height: 350px;
+}
+#wrap #body-wrap > header #svg-textWrap .svg-first {
+  top: 20px;
+  left: 20px;
+}
+#wrap #body-wrap > header #svg-textWrap .svg-second {
+  top: 200px;
+  left: 150px;
+}
+#wrap #body-wrap > header > img {
+  position: absolute;
+  width: 800px;
+  height: 600px;
+  top: -100px;
+  right: -100px;
+}
+#wrap #body-wrap #profile {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 1000px;
+}
+#wrap #body-wrap #profile #inform {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 600px;
+  height: 800px;
+  flex-direction: column;
+}
+#wrap #body-wrap #profile #inform #inform-img {
+  width: 550px;
+  height: 550px;
+  border-radius: 49% 49% 0 0;
+  border: double 8px black;
+  margin-bottom: 15px;
+  position: relative;
+}
+#wrap #body-wrap #profile #inform #inform-img > img {
+  width: 100%;
+  position: absolute;
+}
+#wrap #body-wrap #profile #inform #inform-text {
+  width: 550px;
+  height: 150px;
+  border: double 8px black;
+}
+#wrap #body-wrap #profile #boards {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  width: 800px;
+  height: 800px;
+  background-color: gray;
+}
+#wrap #body-wrap #profile #boards .board {
+  width: 500px;
+  height: 100px;
+  background-color: brown;
+  margin-bottom: 10px;
+  margin-top: 10px;
+}
+#wrap #body-wrap #projects-wrap {
+  width: 100%;
+  overscroll-behavior: none;
+  display: flex;
+  flex-wrap: nowrap;
+  background-color: pink;
+}
+#wrap #body-wrap #projects-wrap #menu {
+  width: 400px;
+  height: 900px;
+  background-color: tomato;
+}
+#wrap #body-wrap #projects-wrap .project {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 1903px;
+  height: 963px;
+  background-color: pink;
+  overflow: hidden;
+}
+#wrap #body-wrap #projects-wrap .project .screen {
+  width: 1400px;
+  height: 900px;
+  background-color: gold;
+  border: 4px solid black;
+}
+
+#only-fixed {
+  width: 100%;
+  z-index: 100;
+  position: fixed;
+}
+#only-fixed #hand-img {
+  width: 100%;
+  height: 100vh;
+  position: relative;
+}
+#only-fixed #hand-img > img {
+  position: absolute;
+  width: 800px;
+  height: 600px;
+  bottom: 0;
+  right: 0;
+}
+
+#wave-wrap {
+  width: 100%;
+}
+
+.waveBox {
+  width: 100%;
+  height: 150px;
+  position: absolute;
+  bottom: 0;
+}
+.waveBox .wave {
+  width: 100%;
+  height: 70px;
+  position: absolute;
+  background-image: url("/img/wave_black.png");
+  background-size: 1000px 70px;
+}
+.waveBox .wave1 {
+  animation: animate 30s linear infinite;
+  z-index: 1000;
+  opacity: 1;
+  animation-delay: 0s;
+  bottom: 0;
+}
+.waveBox .wave2 {
+  animation: animate2 15s linear infinite;
+  z-index: 999;
+  opacity: 0.5;
+  animation-delay: -5s;
+  bottom: 10px;
+}
+.waveBox .wave3 {
+  animation: animate 30s linear infinite;
+  z-index: 998;
+  opacity: 0.2;
+  animation-delay: -2s;
+  bottom: 15px;
+}
+.waveBox .wave4 {
+  animation: animate2 5s linear infinite;
+  z-index: 997;
+  opacity: 0.7;
+  animation-delay: -5s;
+  bottom: 20px;
+}
+
+.waveBlock {
+  width: 100%;
+  height: 100vh;
+  background-color: black;
+  position: absolute;
+  z-index: 1;
+}
+
+.particle-container {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+}
+.particle-container .particle {
+  z-index: 1;
+  opacity: 0;
+  position: fixed;
+  bottom: -10px;
+  width: 10px;
+  height: 10px;
+  background-color: rgb(36, 36, 36);
+  border-radius: 50%;
+}
+.particle-container .particle:nth-child(1) {
+  left: 50%;
+  animation: blow 17000ms infinite;
+  animation-delay: 5425ms;
+}
+.particle-container .particle:nth-child(2) {
+  left: 60%;
+  animation: blow 17000ms infinite;
+  animation-delay: 7887ms;
+}
+.particle-container .particle:nth-child(3) {
+  left: 85%;
+  animation: blow 17000ms infinite;
+  animation-delay: 9817ms;
+}
+.particle-container .particle:nth-child(4) {
+  left: 15%;
+  animation: blow 17000ms infinite;
+  animation-delay: 13683ms;
+}
+.particle-container .particle:nth-child(5) {
+  left: 93%;
+  animation: blow 17000ms infinite;
+  animation-delay: 2640ms;
+}
+.particle-container .particle:nth-child(6) {
+  left: 53%;
+  animation: blow 17000ms infinite;
+  animation-delay: 5289ms;
+}
+.particle-container .particle:nth-child(7) {
+  left: 14%;
+  animation: blow 17000ms infinite;
+  animation-delay: 14241ms;
+}
+.particle-container .particle:nth-child(8) {
+  left: 3%;
+  animation: blow 17000ms infinite;
+  animation-delay: 8358ms;
+}
+.particle-container .particle:nth-child(9) {
+  left: 55%;
+  animation: blow 17000ms infinite;
+  animation-delay: 4628ms;
+}
+.particle-container .particle:nth-child(10) {
+  left: 40%;
+  animation: blow 17000ms infinite;
+  animation-delay: 10275ms;
+}
+.particle-container .particle:nth-child(11) {
+  left: 5%;
+  animation: blow 17000ms infinite;
+  animation-delay: 14075ms;
+}
+.particle-container .particle:nth-child(12) {
+  left: 15%;
+  animation: blow 17000ms infinite;
+  animation-delay: 12458ms;
+}
+.particle-container .particle:nth-child(13) {
+  left: 8%;
+  animation: blow 17000ms infinite;
+  animation-delay: 4964ms;
+}
+.particle-container .particle:nth-child(14) {
+  left: 38%;
+  animation: blow 17000ms infinite;
+  animation-delay: 14827ms;
+}
+.particle-container .particle:nth-child(15) {
+  left: 80%;
+  animation: blow 17000ms infinite;
+  animation-delay: 1596ms;
+}
+.particle-container .particle:nth-child(16) {
+  left: 54%;
+  animation: blow 17000ms infinite;
+  animation-delay: 8026ms;
+}
+.particle-container .particle:nth-child(17) {
+  left: 1%;
+  animation: blow 17000ms infinite;
+  animation-delay: 3054ms;
+}
+.particle-container .particle:nth-child(18) {
+  left: 100%;
+  animation: blow 17000ms infinite;
+  animation-delay: 1295ms;
+}
+.particle-container .particle:nth-child(19) {
+  left: 14%;
+  animation: blow 17000ms infinite;
+  animation-delay: 5933ms;
+}
+.particle-container .particle:nth-child(20) {
+  left: 83%;
+  animation: blow 17000ms infinite;
+  animation-delay: 9786ms;
+}
+.particle-container .particle:nth-child(21) {
+  left: 88%;
+  animation: blow 17000ms infinite;
+  animation-delay: 4212ms;
+}
+.particle-container .particle:nth-child(22) {
+  left: 61%;
+  animation: blow 17000ms infinite;
+  animation-delay: 6039ms;
+}
+.particle-container .particle:nth-child(23) {
+  left: 68%;
+  animation: blow 17000ms infinite;
+  animation-delay: 4993ms;
+}
+.particle-container .particle:nth-child(24) {
+  left: 18%;
+  animation: blow 17000ms infinite;
+  animation-delay: 13600ms;
+}
+.particle-container .particle:nth-child(25) {
+  left: 13%;
+  animation: blow 17000ms infinite;
+  animation-delay: 6320ms;
+}
+.particle-container .particle:nth-child(26) {
+  left: 46%;
+  animation: blow 17000ms infinite;
+  animation-delay: 7993ms;
+}
+.particle-container .particle:nth-child(27) {
+  left: 68%;
+  animation: blow 17000ms infinite;
+  animation-delay: 7715ms;
+}
+.particle-container .particle:nth-child(28) {
+  left: 82%;
+  animation: blow 19905ms infinite;
+  animation-delay: 13352ms;
+}
+.particle-container .particle:nth-child(29) {
+  left: 11%;
+  animation: blow 18055ms infinite;
+  animation-delay: 14924ms;
+}
+.particle-container .particle:nth-child(30) {
+  left: 40%;
+  animation: blow 17000ms infinite;
+  animation-delay: 6120ms;
+}
+.particle-container .particle:nth-child(31) {
+  left: 77%;
+  animation: blow 18834ms infinite;
+  animation-delay: 14132ms;
+}
+.particle-container .particle:nth-child(32) {
+  left: 71%;
+  animation: blow 17000ms infinite;
+  animation-delay: 2858ms;
+}
+.particle-container .particle:nth-child(33) {
+  left: 35%;
+  animation: blow 17000ms infinite;
+  animation-delay: 2226ms;
+}
+.particle-container .particle:nth-child(34) {
+  left: 44%;
+  animation: blow 17000ms infinite;
+  animation-delay: 1974ms;
+}
+.particle-container .particle:nth-child(35) {
+  left: 72%;
+  animation: blow 18969ms infinite;
+  animation-delay: 506ms;
+}
+.particle-container .particle:nth-child(36) {
+  left: 85%;
+  animation: blow 17000ms infinite;
+  animation-delay: 7325ms;
+}
+.particle-container .particle:nth-child(37) {
+  left: 39%;
+  animation: blow 17410ms infinite;
+  animation-delay: 9066ms;
+}
+.particle-container .particle:nth-child(38) {
+  left: 17%;
+  animation: blow 17000ms infinite;
+  animation-delay: 7252ms;
+}
+.particle-container .particle:nth-child(39) {
+  left: 45%;
+  animation: blow 17000ms infinite;
+  animation-delay: 2348ms;
+}
+.particle-container .particle:nth-child(40) {
+  left: 83%;
+  animation: blow 17000ms infinite;
+  animation-delay: 10575ms;
+}
+.particle-container .particle:nth-child(41) {
+  left: 60%;
+  animation: blow 18719ms infinite;
+  animation-delay: 14935ms;
+}
+.particle-container .particle:nth-child(42) {
+  left: 89%;
+  animation: blow 17000ms infinite;
+  animation-delay: 10450ms;
+}
+.particle-container .particle:nth-child(43) {
+  left: 60%;
+  animation: blow 17000ms infinite;
+  animation-delay: 14950ms;
+}
+.particle-container .particle:nth-child(44) {
+  left: 70%;
+  animation: blow 17000ms infinite;
+  animation-delay: 437ms;
+}
+.particle-container .particle:nth-child(45) {
+  left: 100%;
+  animation: blow 17000ms infinite;
+  animation-delay: 4951ms;
+}
+.particle-container .particle:nth-child(46) {
+  left: 95%;
+  animation: blow 17000ms infinite;
+  animation-delay: 6742ms;
+}
+.particle-container .particle:nth-child(47) {
+  left: 53%;
+  animation: blow 17000ms infinite;
+  animation-delay: 9219ms;
+}
+.particle-container .particle:nth-child(48) {
+  left: 20%;
+  animation: blow 17000ms infinite;
+  animation-delay: 14162ms;
+}
+.particle-container .particle:nth-child(49) {
+  left: 65%;
+  animation: blow 17000ms infinite;
+  animation-delay: 13478ms;
+}
+.particle-container .particle:nth-child(50) {
+  left: 98%;
+  animation: blow 17000ms infinite;
+  animation-delay: 819ms;
+}
+.particle-container .particle:nth-child(51) {
+  left: 35%;
+  animation: blow 17000ms infinite;
+  animation-delay: 11226ms;
+}
+.particle-container .particle:nth-child(52) {
+  left: 12%;
+  animation: blow 17000ms infinite;
+  animation-delay: 9675ms;
+}
+.particle-container .particle:nth-child(53) {
+  left: 79%;
+  animation: blow 17000ms infinite;
+  animation-delay: 10797ms;
+}
+.particle-container .particle:nth-child(54) {
+  left: 42%;
+  animation: blow 17000ms infinite;
+  animation-delay: 12952ms;
+}
+.particle-container .particle:nth-child(55) {
+  left: 56%;
+  animation: blow 17000ms infinite;
+  animation-delay: 4354ms;
+}
+.particle-container .particle:nth-child(56) {
+  left: 1%;
+  animation: blow 19277ms infinite;
+  animation-delay: 8337ms;
+}
+.particle-container .particle:nth-child(57) {
+  left: 32%;
+  animation: blow 17000ms infinite;
+  animation-delay: 2427ms;
+}
+.particle-container .particle:nth-child(58) {
+  left: 52%;
+  animation: blow 17765ms infinite;
+  animation-delay: 5926ms;
+}
+.particle-container .particle:nth-child(59) {
+  left: 88%;
+  animation: blow 17000ms infinite;
+  animation-delay: 2559ms;
+}
+.particle-container .particle:nth-child(60) {
+  left: 59%;
+  animation: blow 17000ms infinite;
+  animation-delay: 14188ms;
+}
+.particle-container .particle:nth-child(61) {
+  left: 86%;
+  animation: blow 17000ms infinite;
+  animation-delay: 12005ms;
+}
+.particle-container .particle:nth-child(62) {
+  left: 84%;
+  animation: blow 17000ms infinite;
+  animation-delay: 7196ms;
+}
+.particle-container .particle:nth-child(63) {
+  left: 19%;
+  animation: blow 17000ms infinite;
+  animation-delay: 12961ms;
+}
+.particle-container .particle:nth-child(64) {
+  left: 94%;
+  animation: blow 17000ms infinite;
+  animation-delay: 6665ms;
+}
+.particle-container .particle:nth-child(65) {
+  left: 69%;
+  animation: blow 17000ms infinite;
+  animation-delay: 2603ms;
+}
+.particle-container .particle:nth-child(66) {
+  left: 48%;
+  animation: blow 17000ms infinite;
+  animation-delay: 7641ms;
+}
+.particle-container .particle:nth-child(67) {
+  left: 40%;
+  animation: blow 17000ms infinite;
+  animation-delay: 6865ms;
+}
+.particle-container .particle:nth-child(68) {
+  left: 22%;
+  animation: blow 17000ms infinite;
+  animation-delay: 10638ms;
+}
+.particle-container .particle:nth-child(69) {
+  left: 96%;
+  animation: blow 17000ms infinite;
+  animation-delay: 9260ms;
+}
+.particle-container .particle:nth-child(70) {
+  left: 86%;
+  animation: blow 17000ms infinite;
+  animation-delay: 5270ms;
+}
+.particle-container .particle:nth-child(71) {
+  left: 86%;
+  animation: blow 17000ms infinite;
+  animation-delay: 2585ms;
+}
+.particle-container .particle:nth-child(72) {
+  left: 46%;
+  animation: blow 18647ms infinite;
+  animation-delay: 7438ms;
+}
+.particle-container .particle:nth-child(73) {
+  left: 71%;
+  animation: blow 17000ms infinite;
+  animation-delay: 12142ms;
+}
+.particle-container .particle:nth-child(74) {
+  left: 33%;
+  animation: blow 17000ms infinite;
+  animation-delay: 9960ms;
+}
+.particle-container .particle:nth-child(75) {
+  left: 1%;
+  animation: blow 17000ms infinite;
+  animation-delay: 12462ms;
+}
+.particle-container .particle:nth-child(76) {
+  left: 86%;
+  animation: blow 17000ms infinite;
+  animation-delay: 6760ms;
+}
+.particle-container .particle:nth-child(77) {
+  left: 76%;
+  animation: blow 17000ms infinite;
+  animation-delay: 9380ms;
+}
+.particle-container .particle:nth-child(78) {
+  left: 92%;
+  animation: blow 17000ms infinite;
+  animation-delay: 7528ms;
+}
+.particle-container .particle:nth-child(79) {
+  left: 47%;
+  animation: blow 17000ms infinite;
+  animation-delay: 10441ms;
+}
+.particle-container .particle:nth-child(80) {
+  left: 36%;
+  animation: blow 17000ms infinite;
+  animation-delay: 5798ms;
+}
+.particle-container .particle:nth-child(81) {
+  left: 5%;
+  animation: blow 17000ms infinite;
+  animation-delay: 11415ms;
+}
+.particle-container .particle:nth-child(82) {
+  left: 84%;
+  animation: blow 17717ms infinite;
+  animation-delay: 6913ms;
+}
+.particle-container .particle:nth-child(83) {
+  left: 47%;
+  animation: blow 17000ms infinite;
+  animation-delay: 13176ms;
+}
+.particle-container .particle:nth-child(84) {
+  left: 59%;
+  animation: blow 17000ms infinite;
+  animation-delay: 5667ms;
+}
+.particle-container .particle:nth-child(85) {
+  left: 63%;
+  animation: blow 19077ms infinite;
+  animation-delay: 3453ms;
+}
+.particle-container .particle:nth-child(86) {
+  left: 2%;
+  animation: blow 17000ms infinite;
+  animation-delay: 10409ms;
+}
+.particle-container .particle:nth-child(87) {
+  left: 54%;
+  animation: blow 17000ms infinite;
+  animation-delay: 12625ms;
+}
+.particle-container .particle:nth-child(88) {
+  left: 75%;
+  animation: blow 17000ms infinite;
+  animation-delay: 8882ms;
+}
+.particle-container .particle:nth-child(89) {
+  left: 31%;
+  animation: blow 17000ms infinite;
+  animation-delay: 10948ms;
+}
+.particle-container .particle:nth-child(90) {
+  left: 60%;
+  animation: blow 17000ms infinite;
+  animation-delay: 10770ms;
+}
+.particle-container .particle:nth-child(91) {
+  left: 4%;
+  animation: blow 17000ms infinite;
+  animation-delay: 5567ms;
+}
+.particle-container .particle:nth-child(92) {
+  left: 23%;
+  animation: blow 18869ms infinite;
+  animation-delay: 14882ms;
+}
+.particle-container .particle:nth-child(93) {
+  left: 86%;
+  animation: blow 17000ms infinite;
+  animation-delay: 981ms;
+}
+.particle-container .particle:nth-child(94) {
+  left: 91%;
+  animation: blow 17000ms infinite;
+  animation-delay: 5564ms;
+}
+.particle-container .particle:nth-child(95) {
+  left: 25%;
+  animation: blow 17000ms infinite;
+  animation-delay: 6272ms;
+}
+.particle-container .particle:nth-child(96) {
+  left: 51%;
+  animation: blow 17000ms infinite;
+  animation-delay: 7175ms;
+}
+.particle-container .particle:nth-child(97) {
+  left: 5%;
+  animation: blow 18572ms infinite;
+  animation-delay: 6816ms;
+}
+.particle-container .particle:nth-child(98) {
+  left: 66%;
+  animation: blow 17000ms infinite;
+  animation-delay: 8083ms;
+}
+.particle-container .particle:nth-child(99) {
+  left: 84%;
+  animation: blow 17000ms infinite;
+  animation-delay: 8104ms;
+}
+.particle-container .particle:nth-child(100) {
+  left: 33%;
+  animation: blow 17000ms infinite;
+  animation-delay: 1499ms;
+}
+.particle-container .particle:nth-child(101) {
+  left: 93%;
+  animation: blow 17000ms infinite;
+  animation-delay: 4143ms;
+}
+.particle-container .particle:nth-child(102) {
+  left: 72%;
+  animation: blow 17000ms infinite;
+  animation-delay: 5303ms;
+}
+.particle-container .particle:nth-child(103) {
+  left: 22%;
+  animation: blow 17000ms infinite;
+  animation-delay: 12800ms;
+}
+.particle-container .particle:nth-child(104) {
+  left: 64%;
+  animation: blow 17000ms infinite;
+  animation-delay: 9916ms;
+}
+.particle-container .particle:nth-child(105) {
+  left: 77%;
+  animation: blow 18741ms infinite;
+  animation-delay: 2707ms;
+}
+.particle-container .particle:nth-child(106) {
+  left: 58%;
+  animation: blow 17000ms infinite;
+  animation-delay: 7560ms;
+}
+.particle-container .particle:nth-child(107) {
+  left: 50%;
+  animation: blow 17000ms infinite;
+  animation-delay: 13384ms;
+}
+.particle-container .particle:nth-child(108) {
+  left: 15%;
+  animation: blow 17000ms infinite;
+  animation-delay: 13467ms;
+}
+.particle-container .particle:nth-child(109) {
+  left: 97%;
+  animation: blow 17000ms infinite;
+  animation-delay: 755ms;
+}
+.particle-container .particle:nth-child(110) {
+  left: 50%;
+  animation: blow 17000ms infinite;
+  animation-delay: 127ms;
+}
+.particle-container .particle:nth-child(111) {
+  left: 69%;
+  animation: blow 17000ms infinite;
+  animation-delay: 1426ms;
+}
+.particle-container .particle:nth-child(112) {
+  left: 37%;
+  animation: blow 18636ms infinite;
+  animation-delay: 5064ms;
+}
+.particle-container .particle:nth-child(113) {
+  left: 30%;
+  animation: blow 17000ms infinite;
+  animation-delay: 1010ms;
+}
+.particle-container .particle:nth-child(114) {
+  left: 47%;
+  animation: blow 17000ms infinite;
+  animation-delay: 4877ms;
+}
+.particle-container .particle:nth-child(115) {
+  left: 97%;
+  animation: blow 17000ms infinite;
+  animation-delay: 12545ms;
+}
+.particle-container .particle:nth-child(116) {
+  left: 87%;
+  animation: blow 17000ms infinite;
+  animation-delay: 2032ms;
+}
+.particle-container .particle:nth-child(117) {
+  left: 84%;
+  animation: blow 17000ms infinite;
+  animation-delay: 10580ms;
+}
+.particle-container .particle:nth-child(118) {
+  left: 97%;
+  animation: blow 17000ms infinite;
+  animation-delay: 5689ms;
+}
+.particle-container .particle:nth-child(119) {
+  left: 84%;
+  animation: blow 17000ms infinite;
+  animation-delay: 10261ms;
+}
+.particle-container .particle:nth-child(120) {
+  left: 98%;
+  animation: blow 18963ms infinite;
+  animation-delay: 9374ms;
+}
+.particle-container .particle:nth-child(121) {
+  left: 87%;
+  animation: blow 17000ms infinite;
+  animation-delay: 11687ms;
+}
+.particle-container .particle:nth-child(122) {
+  left: 63%;
+  animation: blow 17000ms infinite;
+  animation-delay: 7074ms;
+}
+.particle-container .particle:nth-child(123) {
+  left: 69%;
+  animation: blow 19870ms infinite;
+  animation-delay: 8931ms;
+}
+.particle-container .particle:nth-child(124) {
+  left: 86%;
+  animation: blow 17000ms infinite;
+  animation-delay: 4504ms;
+}
+.particle-container .particle:nth-child(125) {
+  left: 38%;
+  animation: blow 17000ms infinite;
+  animation-delay: 7281ms;
+}
+.particle-container .particle:nth-child(126) {
+  left: 6%;
+  animation: blow 17000ms infinite;
+  animation-delay: 7445ms;
+}
+.particle-container .particle:nth-child(127) {
+  left: 25%;
+  animation: blow 17000ms infinite;
+  animation-delay: 13043ms;
+}
+.particle-container .particle:nth-child(128) {
+  left: 27%;
+  animation: blow 17000ms infinite;
+  animation-delay: 4056ms;
+}
+.particle-container .particle:nth-child(129) {
+  left: 85%;
+  animation: blow 17000ms infinite;
+  animation-delay: 7099ms;
+}
+.particle-container .particle:nth-child(130) {
+  left: 44%;
+  animation: blow 17000ms infinite;
+  animation-delay: 3258ms;
+}
+.particle-container .particle:nth-child(131) {
+  left: 58%;
+  animation: blow 17000ms infinite;
+  animation-delay: 8564ms;
+}
+.particle-container .particle:nth-child(132) {
+  left: 24%;
+  animation: blow 17000ms infinite;
+  animation-delay: 12078ms;
+}
+.particle-container .particle:nth-child(133) {
+  left: 92%;
+  animation: blow 17000ms infinite;
+  animation-delay: 10002ms;
+}
+.particle-container .particle:nth-child(134) {
+  left: 49%;
+  animation: blow 17000ms infinite;
+  animation-delay: 2919ms;
+}
+.particle-container .particle:nth-child(135) {
+  left: 57%;
+  animation: blow 17000ms infinite;
+  animation-delay: 8809ms;
+}
+.particle-container .particle:nth-child(136) {
+  left: 31%;
+  animation: blow 17000ms infinite;
+  animation-delay: 2439ms;
+}
+.particle-container .particle:nth-child(137) {
+  left: 60%;
+  animation: blow 17000ms infinite;
+  animation-delay: 5160ms;
+}
+.particle-container .particle:nth-child(138) {
+  left: 24%;
+  animation: blow 17000ms infinite;
+  animation-delay: 11317ms;
+}
+.particle-container .particle:nth-child(139) {
+  left: 26%;
+  animation: blow 17000ms infinite;
+  animation-delay: 9488ms;
+}
+.particle-container .particle:nth-child(140) {
+  left: 71%;
+  animation: blow 17000ms infinite;
+  animation-delay: 587ms;
+}
+.particle-container .particle:nth-child(141) {
+  left: 54%;
+  animation: blow 19772ms infinite;
+  animation-delay: 5065ms;
+}
+.particle-container .particle:nth-child(142) {
+  left: 24%;
+  animation: blow 17000ms infinite;
+  animation-delay: 9936ms;
+}
+.particle-container .particle:nth-child(143) {
+  left: 80%;
+  animation: blow 17000ms infinite;
+  animation-delay: 6551ms;
+}
+.particle-container .particle:nth-child(144) {
+  left: 70%;
+  animation: blow 17000ms infinite;
+  animation-delay: 11699ms;
+}
+.particle-container .particle:nth-child(145) {
+  left: 4%;
+  animation: blow 17000ms infinite;
+  animation-delay: 12694ms;
+}
+.particle-container .particle:nth-child(146) {
+  left: 45%;
+  animation: blow 17000ms infinite;
+  animation-delay: 5464ms;
+}
+.particle-container .particle:nth-child(147) {
+  left: 99%;
+  animation: blow 17000ms infinite;
+  animation-delay: 12312ms;
+}
+.particle-container .particle:nth-child(148) {
+  left: 90%;
+  animation: blow 17000ms infinite;
+  animation-delay: 2285ms;
+}
+.particle-container .particle:nth-child(149) {
+  left: 6%;
+  animation: blow 17000ms infinite;
+  animation-delay: 2687ms;
+}
+.particle-container .particle:nth-child(150) {
+  left: 99%;
+  animation: blow 17000ms infinite;
+  animation-delay: 6287ms;
+}
+.particle-container .particle:nth-child(151) {
+  left: 56%;
+  animation: blow 17000ms infinite;
+  animation-delay: 13079ms;
+}
+.particle-container .particle:nth-child(152) {
+  left: 19%;
+  animation: blow 17000ms infinite;
+  animation-delay: 7317ms;
+}
+.particle-container .particle:nth-child(153) {
+  left: 12%;
+  animation: blow 17000ms infinite;
+  animation-delay: 2031ms;
+}
+.particle-container .particle:nth-child(154) {
+  left: 37%;
+  animation: blow 17000ms infinite;
+  animation-delay: 2372ms;
+}
+.particle-container .particle:nth-child(155) {
+  left: 62%;
+  animation: blow 17000ms infinite;
+  animation-delay: 12485ms;
+}
+.particle-container .particle:nth-child(156) {
+  left: 74%;
+  animation: blow 17000ms infinite;
+  animation-delay: 111ms;
+}
+.particle-container .particle:nth-child(157) {
+  left: 19%;
+  animation: blow 17000ms infinite;
+  animation-delay: 12695ms;
+}
+.particle-container .particle:nth-child(158) {
+  left: 19%;
+  animation: blow 17000ms infinite;
+  animation-delay: 13015ms;
+}
+.particle-container .particle:nth-child(159) {
+  left: 66%;
+  animation: blow 17054ms infinite;
+  animation-delay: 13806ms;
+}
+.particle-container .particle:nth-child(160) {
+  left: 19%;
+  animation: blow 17000ms infinite;
+  animation-delay: 6656ms;
+}
+.particle-container .particle:nth-child(161) {
+  left: 25%;
+  animation: blow 17000ms infinite;
+  animation-delay: 4353ms;
+}
+.particle-container .particle:nth-child(162) {
+  left: 26%;
+  animation: blow 17000ms infinite;
+  animation-delay: 8339ms;
+}
+.particle-container .particle:nth-child(163) {
+  left: 41%;
+  animation: blow 17000ms infinite;
+  animation-delay: 2790ms;
+}
+.particle-container .particle:nth-child(164) {
+  left: 9%;
+  animation: blow 17000ms infinite;
+  animation-delay: 12193ms;
+}
+.particle-container .particle:nth-child(165) {
+  left: 17%;
+  animation: blow 17000ms infinite;
+  animation-delay: 1743ms;
+}
+.particle-container .particle:nth-child(166) {
+  left: 80%;
+  animation: blow 17000ms infinite;
+  animation-delay: 7477ms;
+}
+.particle-container .particle:nth-child(167) {
+  left: 70%;
+  animation: blow 17000ms infinite;
+  animation-delay: 9410ms;
+}
+.particle-container .particle:nth-child(168) {
+  left: 53%;
+  animation: blow 17000ms infinite;
+  animation-delay: 13662ms;
+}
+.particle-container .particle:nth-child(169) {
+  left: 40%;
+  animation: blow 17000ms infinite;
+  animation-delay: 7968ms;
+}
+.particle-container .particle:nth-child(170) {
+  left: 68%;
+  animation: blow 17000ms infinite;
+  animation-delay: 12229ms;
+}
+.particle-container .particle:nth-child(171) {
+  left: 26%;
+  animation: blow 17000ms infinite;
+  animation-delay: 8364ms;
+}
+.particle-container .particle:nth-child(172) {
+  left: 52%;
+  animation: blow 17000ms infinite;
+  animation-delay: 9614ms;
+}
+.particle-container .particle:nth-child(173) {
+  left: 82%;
+  animation: blow 17000ms infinite;
+  animation-delay: 13575ms;
+}
+.particle-container .particle:nth-child(174) {
+  left: 88%;
+  animation: blow 17000ms infinite;
+  animation-delay: 8968ms;
+}
+.particle-container .particle:nth-child(175) {
+  left: 36%;
+  animation: blow 19422ms infinite;
+  animation-delay: 3424ms;
+}
+.particle-container .particle:nth-child(176) {
+  left: 29%;
+  animation: blow 17000ms infinite;
+  animation-delay: 2901ms;
+}
+.particle-container .particle:nth-child(177) {
+  left: 82%;
+  animation: blow 17000ms infinite;
+  animation-delay: 12980ms;
+}
+.particle-container .particle:nth-child(178) {
+  left: 57%;
+  animation: blow 17000ms infinite;
+  animation-delay: 14262ms;
+}
+.particle-container .particle:nth-child(179) {
+  left: 22%;
+  animation: blow 17000ms infinite;
+  animation-delay: 6495ms;
+}
+.particle-container .particle:nth-child(180) {
+  left: 74%;
+  animation: blow 19758ms infinite;
+  animation-delay: 7629ms;
+}
+.particle-container .particle:nth-child(181) {
+  left: 6%;
+  animation: blow 17000ms infinite;
+  animation-delay: 7536ms;
+}
+.particle-container .particle:nth-child(182) {
+  left: 96%;
+  animation: blow 17000ms infinite;
+  animation-delay: 13191ms;
+}
+.particle-container .particle:nth-child(183) {
+  left: 24%;
+  animation: blow 17000ms infinite;
+  animation-delay: 925ms;
+}
+.particle-container .particle:nth-child(184) {
+  left: 81%;
+  animation: blow 17000ms infinite;
+  animation-delay: 2231ms;
+}
+.particle-container .particle:nth-child(185) {
+  left: 83%;
+  animation: blow 17000ms infinite;
+  animation-delay: 2096ms;
+}
+.particle-container .particle:nth-child(186) {
+  left: 14%;
+  animation: blow 17000ms infinite;
+  animation-delay: 3790ms;
+}
+.particle-container .particle:nth-child(187) {
+  left: 83%;
+  animation: blow 19927ms infinite;
+  animation-delay: 151ms;
+}
+.particle-container .particle:nth-child(188) {
+  left: 50%;
+  animation: blow 17000ms infinite;
+  animation-delay: 8016ms;
+}
+.particle-container .particle:nth-child(189) {
+  left: 67%;
+  animation: blow 17000ms infinite;
+  animation-delay: 4156ms;
+}
+.particle-container .particle:nth-child(190) {
+  left: 85%;
+  animation: blow 17000ms infinite;
+  animation-delay: 11195ms;
+}
+.particle-container .particle:nth-child(191) {
+  left: 42%;
+  animation: blow 17000ms infinite;
+  animation-delay: 11454ms;
+}
+.particle-container .particle:nth-child(192) {
+  left: 92%;
+  animation: blow 17000ms infinite;
+  animation-delay: 282ms;
+}
+.particle-container .particle:nth-child(193) {
+  left: 71%;
+  animation: blow 17000ms infinite;
+  animation-delay: 3313ms;
+}
+.particle-container .particle:nth-child(194) {
+  left: 90%;
+  animation: blow 17000ms infinite;
+  animation-delay: 11483ms;
+}
+.particle-container .particle:nth-child(195) {
+  left: 54%;
+  animation: blow 17000ms infinite;
+  animation-delay: 12044ms;
+}
+.particle-container .particle:nth-child(196) {
+  left: 96%;
+  animation: blow 17000ms infinite;
+  animation-delay: 1545ms;
+}
+.particle-container .particle:nth-child(197) {
+  left: 85%;
+  animation: blow 17000ms infinite;
+  animation-delay: 11489ms;
+}
+.particle-container .particle:nth-child(198) {
+  left: 92%;
+  animation: blow 17000ms infinite;
+  animation-delay: 12641ms;
+}
+.particle-container .particle:nth-child(199) {
+  left: 21%;
+  animation: blow 18972ms infinite;
+  animation-delay: 14131ms;
+}
+.particle-container .particle:nth-child(200) {
+  left: 77%;
+  animation: blow 17000ms infinite;
+  animation-delay: 9831ms;
+}
+
+@keyframes flipIn {
+  0% {
+    transform: perspective(1000px) rotate3d(0, 1, 0, 90deg);
+    transition-timing-function: ease-in;
+  }
+  40% {
+    transform: perspective(1000px) rotate3d(0, 1, 0, -20deg);
+    transition-timing-function: ease-in;
+  }
+  60% {
+    transform: perspective(1000px) rotate3d(0, 1, 0, 0deg);
+    opacity: 1;
+  }
+  80% {
+    transform: perspective(1000px) rotate3d(0, 1, 0, -5deg);
+  }
+  100% {
+    transform: perspective(1000px);
+  }
+}
+@keyframes bounce {
+  100% {
+    top: 5px;
+    text-shadow: 0 1px 0 #CCC, 0 2px 0 #CCC, 0 3px 0 #CCC, 0 4px 0 #CCC, 0 5px 0 #CCC, 0 6px 0 #CCC, 0 7px 0 #CCC, 0 8px 0 #CCC, 0 9px 0 #CCC, 0 50px 25px rgba(0, 0, 0, 0.2);
+  }
+}
+@keyframes animate {
+  0% {
+    background-position-x: 0;
+  }
+  100% {
+    background-position-x: 1000px;
+  }
+}
+@keyframes animate2 {
+  0% {
+    background-position-x: 0;
+  }
+  100% {
+    background-position-x: -1000px;
+  }
+}
+@keyframes blow {
+  0% {
+    opacity: 0;
+    transform: translate(0, 0);
+  }
+  20% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+    transform: translate(0, -600px) scale(0.2);
+  }
+}
+@keyframes svg-text-anim {
+  40% {
+    stroke-dashoffset: 0;
+    fill: transparent;
+  }
+  60% {
+    stroke-dashoffset: 0;
+    fill: #000000;
+  }
+  100% {
+    stroke-dashoffset: 0;
+    fill: #000000;
+  }
+}
