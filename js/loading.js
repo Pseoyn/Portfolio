@@ -1,5 +1,7 @@
 window.onload = function () {
 
+	//------------------------------------------- 로딩 -------------------------------------------
+
 	var promise = new Promise(function (resolve, reject) {
 		var current = 0;
 		imgDuration = 500;
@@ -36,10 +38,10 @@ window.onload = function () {
 		document.querySelector("#loading_wave").style.display = "none"
 
 		// css 에서 none 으로 설정 후 실행이 완료되었을 때 block ( 이런 방법을 생각 못하고 어렵게 생각하고 있었다..)
-		document.querySelector("#body_wrap").style.display = "block";
+		document.querySelector("#body_wrap").style.display = 'block';
 	});
 
-	//font
+	// ------------------------------------------- svg 폰트 -------------------------------------------
 	function setTextAnimation(delay, duration, strokeWidth, timingFunction, strokeColor,repeat) {
 		let paths = document.querySelectorAll("path");
 		let mode=repeat?'infinite':'forwards'
@@ -54,15 +56,7 @@ window.onload = function () {
 			path.style["animation-delay"] = `${i * delay}s`;
 		}
 	}
-	setTextAnimation(0.1, 3, 3, 'ease-in-out', '#000000', true);
-
-
-
-
-
-
-
-	//project menu 호버하면 잉크 쏟은 느낌으로 svg 활용하고 동시에 hand png 가 바뀌면서 말풍선 oops 추가하면 괜찮지 않
+	setTextAnimation(0.1,3.7,1,'linear','#000000',true);
 }
 
 

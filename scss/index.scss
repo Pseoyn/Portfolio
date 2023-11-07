@@ -32,12 +32,33 @@ body {
 #wrap {
     width: 100vw;
 
+    .cursor {
+        width: 20px;
+        height: 20px;
+        position:absolute;
+        border-radius: 50%;
+        pointer-events: none;
+        user-select: none;
+        transform: scale(1);
+        transition: transform .3s ease-in-out, opacity .2s ease-in-out;
+        mix-blend-mode: difference;
+        background: #fff;
+        z-index: 999;
+
+    }
+
+    .active {
+        width: 80px;
+        height: 80px;
+    }
+
     #loading-wrap {
         background-image: url("/img/loading.jpg");
         background-position: center;
         background-repeat: no-repeat;
         background-size: cover;
         display: block;
+        overflow: hidden;
 
         //효과 : https://www.theappguruz.com/tag-tools/web/CSSAnimations/
         #loading-imgBox {
@@ -135,34 +156,13 @@ body {
 
     #body-wrap {
         display: none;
+        // 고정된 파티클, 웨이브 css는 맨 아래
 
-        //고정된 파티클, 웨이브 css는 맨 아래
-
-        >header {
+        // font: Rammetto One > https://akashraj9828.github.io/svg-text-animation-generator/ 
+        > header {
             position: relative;
 
-            #svg-textWrap {
-                width: 100%;
-                height: 350px;
-                // position: relative;
-
-                .svg-first {
-                    top: 20px;
-                    left: 20px;
-                    // z-index: 1;
-                    // position: absolute;
-                }
-
-                .svg-second {
-                    top: 200px;
-                    left: 150px;
-                    // z-index: 1;
-                    // position: absolute;
-                }
-            }
-
-            //cut img
-            >img {
+            > img {
                 position: absolute;
                 width: 800px;
                 height: 600px;
@@ -171,9 +171,43 @@ body {
             }
         }
 
+        .svg-textWrap {
+            &1 {
+                width: 100%;
+                height: 350px;
+            }
+
+            &2 {
+                width: 100%;
+                height: 350px;
+            }
+            // position: relative;
+
+            .svg{
+                &1{
+                    margin-top: 20px;
+                    padding-left: 20px;
+                    text-align: left;
+                }
+                &2 {
+                    text-align: left;
+                    padding-top: 20px;
+                    padding-left: 20px;
+                    
+                }
+
+                &3 {
+                    padding-left: 40px;
+                }
+            } 
+        }
+
+        //cut img
+       
+
         //section 1
         #profile {
-            @include flex(center, center);
+            @include flex(center, normal);
             width: 100%;
             height: 1000px;
 
@@ -210,7 +244,6 @@ body {
                 flex-direction: column;
                 width: 800px;
                 height: 800px;
-                background-color: gray;
 
                 .board {
                     width: 500px;
@@ -483,35 +516,32 @@ $particle-max-delay: 15000; // ms
 // svg text keyframe
 @-webkit-keyframes svg-text-anim {
     40% {
-        stroke-dashoffset: 0;
-        fill: transparent;
-    }
-
-    60% {
-        stroke-dashoffset: 0;
-        fill: #000000;
-    }
-
-    100% {
-        stroke-dashoffset: 0;
-        fill: #000000;
-    }
-
-}
-
-@keyframes svg-text-anim {
+       stroke-dashoffset: 0;
+       fill: transparent;
+     }
+     60% {
+       stroke-dashoffset: 0;
+       fill: #000000;
+     }
+     100% {
+       stroke-dashoffset: 0;
+       fill: #000000;
+     }
+     
+ }
+ /* Most browsers */
+ @keyframes svg-text-anim {
     40% {
-        stroke-dashoffset: 0;
-        fill: transparent;
-    }
-
-    60% {
-        stroke-dashoffset: 0;
-        fill: #000000;
-    }
-
-    100% {
-        stroke-dashoffset: 0;
-        fill: #000000;
-    }
-}
+       stroke-dashoffset: 0;
+       fill: transparent;
+     }
+     60% {
+       stroke-dashoffset: 0;
+       fill: #000000;
+     }
+     100% {
+       stroke-dashoffset: 0;
+       fill: #000000;
+     }
+     
+ }

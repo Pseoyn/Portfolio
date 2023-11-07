@@ -61,7 +61,7 @@
 	//
 
 
-// gsap
+
 	//로딩 후 wave
 	const wave = document.querySelector('#wave-wrap');
 	
