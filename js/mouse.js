@@ -2,7 +2,7 @@
 
 // 선택자
 const cursor = document.querySelector(".cursor");
-const contentEm = document.querySelectorAll(".project");
+const contentEm = document.querySelectorAll(".screen-view");
 const infoLi = document.querySelectorAll(".info.bottom li");
 
 // 움직임 효과

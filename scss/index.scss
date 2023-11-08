@@ -23,7 +23,7 @@
 
 //keyframe 은 맨 아래에
 body {
-    background-image: url("/img/background_2.jpg");
+    background: url("/img/background.jpg") fixed;
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
@@ -31,6 +31,20 @@ body {
 
 #wrap {
     width: 100vw;
+    transition: all 0.5s;
+
+    #border {
+        width: 95%;
+        height: 95%;
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        // background-color: pink;
+        border: 2px solid white;
+        mix-blend-mode: difference;
+        z-index: 5;
+    }
 
     .cursor {
         width: 20px;
@@ -44,12 +58,12 @@ body {
         mix-blend-mode: difference;
         background: #fff;
         z-index: 999;
+        
 
     }
 
     .active {
-        width: 80px;
-        height: 80px;
+        transform: scale(10);
     }
 
     #loading-wrap {
@@ -204,25 +218,42 @@ body {
 
         //cut img
        
+        #scroll-text{
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            
+            >h1 {
+                @include font();
+                position: absolute;
+                text-align: center;
+                font-size: 2rem;
+                opacity: 1;
+                color: black;
+            }
+
+        }
 
         //section 1
         #profile {
             @include flex(center, normal);
             width: 100%;
-            height: 1000px;
+            height: 1300px;
 
             #inform {
                 @include flex(center, center);
                 width: 600px;
                 height: 800px;
                 flex-direction: column;
+                // background-color: pink;
 
-                #inform-img {
+                .inform-img {
                     width: 550px;
                     height: 550px;
                     // background-color: blue;
                     border-radius: 49% 49% 0 0;
-                    border: double 8px black;
+                    border: 1px solid black;
                     margin-bottom: 15px;
                     position: relative;
 
@@ -232,10 +263,24 @@ body {
                     }
                 }
 
-                #inform-text {
+                .inform-text {
+                    @include font();
                     width: 550px;
                     height: 150px;
-                    border: double 8px black;
+                    padding-top: 20px;
+                    color: black;
+                    
+                    
+
+                    > h1 {
+                        font-size: 4rem;
+                        margin-bottom: 5px;
+                    }
+
+                    > h4 {
+                        font-size: 2rem
+                    }
+                    
                 }
             }
 
@@ -243,50 +288,77 @@ body {
                 @include flex(center, center);
                 flex-direction: column;
                 width: 800px;
-                height: 800px;
+                height: 950px;
+                // margin-top: 250px;
+                // background-color: pink;
 
                 .board {
                     width: 500px;
                     height: 100px;
-                    background-color: brown;
+                    // background-color: rgb(66, 66, 66);
+                    // border: 3px solid rgb(0, 0, 0);
+                    border-bottom: 1px solid black;
                     margin-bottom: 10px;
                     margin-top: 10px;
+                    text-align: center;
+                    > h1 {
+                        @include font();
+                        color:#000000;
+                        line-height: 4em;
+                        font-size: 2rem;
+                    }
                 }
             }
         }
 
         //section2
         #projects-wrap {
-            width: 100%;
+            width: 400%;
             overscroll-behavior: none;
-
             display: flex;
             flex-wrap: nowrap;
-            background-color: pink;
-
-
-            #menu {
-                width: 400px;
-                height: 900px;
-                background-color: tomato;
-            }
-
+            // background-color: pink;
+            position: relative;
+            z-index: 1;
 
             .project {
-                display: flex;
-                justify-content: center;
-                align-items: center;
-                width: 1903px;
+                @include flex(center, center);
+                width: 100%;
                 height: 963px;
-                background-color: pink;
-                // position: relative;
-                overflow: hidden;
+                // background-color: pink;
+                padding-left: 50px;
+            
 
                 .screen {
+                    @include flex(center, center);
+                    width: 1805px;
+                    height: 911px;
+                    // background-color: gold;
+                    // border: 4px solid black;
+                    position: relative;
+                    
+                }
+
+                .screen-text {
+                    width: 400px;
+                    height: 100%;
+                    // background-color: tomato;
+                }
+
+                .screen-view {
                     width: 1400px;
-                    height: 900px;
-                    background-color: gold;
-                    border: 4px solid black;
+                    height: 100%;
+                    background-color: rgb(188, 114, 127);
+                    transition: all 0.5s;
+                    position: relative;
+                    overflow:hidden;
+                    
+                   
+                    > img {
+                        width: 100%;
+                        top: 0px;
+                        position: absolute;
+                    }
                 }
 
             }
@@ -301,22 +373,8 @@ body {
 // 웨이브 효과 : https://www.youtube.com/watch?v=MMNEEdGa5eE&list=LL&index=20
 #only-fixed {
     width: 100%;
-    z-index: 100;
+    z-index: 800;
     position: fixed;
-
-    #hand-img {
-        width: 100%;
-        height: 100vh;
-        position: relative;
-
-        >img {
-            position: absolute;
-            width: 800px;
-            height: 600px;
-            bottom: 0;
-            right: 0;
-        }
-    }
 }
 
 #wave-wrap {
@@ -338,7 +396,7 @@ body {
 
         &1 {
             animation: animate 30s linear infinite;
-            z-index: 1000;
+            z-index: 8;
             opacity: 1;
             animation-delay: 0s;
             bottom: 0;
@@ -346,7 +404,7 @@ body {
 
         &2 {
             animation: animate2 15s linear infinite;
-            z-index: 999;
+            z-index: 7;
             opacity: 0.5;
             animation-delay: -5s;
             bottom: 10px;
@@ -354,7 +412,7 @@ body {
 
         &3 {
             animation: animate 30s linear infinite;
-            z-index: 998;
+            z-index: 6;
             opacity: 0.2;
             animation-delay: -2s;
             bottom: 15px;
@@ -362,7 +420,7 @@ body {
 
         &4 {
             animation: animate2 5s linear infinite;
-            z-index: 997;
+            z-index: 5;
             opacity: 0.7;
             animation-delay: -5s;
             bottom: 20px;
@@ -372,7 +430,7 @@ body {
 
 .waveBlock {
     width: 100%;
-    height: 100vh;
+    height: 2000px;
     background-color: black;
     position: absolute;
     z-index: 1;
@@ -393,6 +451,8 @@ $particle-max-delay: 15000; // ms
     left: 0;
     width: 100%;
 
+    
+
     .particle {
         z-index: 1;
         opacity: 0;
@@ -400,7 +460,7 @@ $particle-max-delay: 15000; // ms
         bottom: -$particle-size;
         width: $particle-size;
         height: $particle-size;
-        background-color: rgb(36, 36, 36);
+        background-color: rgb(0, 0, 0);
         border-radius: 50%;
 
         // Randomize bubles
