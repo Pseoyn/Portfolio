@@ -4,18 +4,18 @@
 
 //mixin
 @mixin flex($j, $a) {
-    display: flex;
-    justify-content: $j;
-    align-items: $a;
+  display: flex;
+  justify-content: $j;
+  align-items: $a;
 }
 
 ;
 
 @mixin font() {
-    font-family: 'GangwonEdu_OTFBoldA';
-    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2201-2@1.0/GangwonEdu_OTFBoldA.woff') format('woff');
-    font-weight: normal;
-    font-style: normal;
+  font-family: 'GangwonEdu_OTFBoldA';
+  src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2201-2@1.0/GangwonEdu_OTFBoldA.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
 }
 
 ;
@@ -23,347 +23,410 @@
 
 //keyframe 은 맨 아래에
 body {
-    background: url("/img/background.jpg") fixed;
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
+  background: url("/img/background_2.jpg") fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 
 #wrap {
-    width: 100vw;
-    transition: all 0.5s;
+  width: 100vw;
+  transition: all 0.5s;
 
-    #border {
-        width: 95%;
-        height: 95%;
-        position: fixed;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%);
-        // background-color: pink;
-        border: 2px solid white;
-        mix-blend-mode: difference;
-        z-index: 5;
+  #border {
+    width: 98%;
+    height: 95%;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    // background-color: pink;
+    border: 2px solid white;
+    mix-blend-mode: difference;
+    z-index: 1;
+    box-shadow: 0 0 0 100px #ffffff;
+  }
+
+  .cursor {
+    width: 20px;
+    height: 20px;
+    position: absolute;
+    border-radius: 50%;
+    pointer-events: none;
+    user-select: none;
+    transform: scale(1);
+    transition: transform .3s ease-in-out, opacity .2s ease-in-out;
+    mix-blend-mode: difference;
+    background: #fff;
+    z-index: 999;
+
+
+  }
+
+  .active {
+    transform: scale(10);
+  }
+
+  #loading-wrap {
+
+    height: 100vh;
+    width: 100%;
+    display: block;
+    overflow: hidden;
+    margin-top: 0px;
+    top: 0%;
+
+    .loadding-page {
+      width: 100%;
+      height: 100%;
+      background: #000000;
+      overflow: hidden;
+      position: absolute;
+      top: 0px;
+      z-index: 9999;
     }
 
-    .cursor {
-        width: 20px;
-        height: 20px;
-        position:absolute;
+    .cssload-box-loading {
+      width: 49px;
+      height: 49px;
+      margin: auto;
+      position: absolute;
+      left: 0;
+      right: 0;
+      top: -120px;
+      bottom: 0;
+
+      &::before {
+        content: '';
+        width: 49px;
+        height: 5px;
+        background: #000000;
+        opacity: 0.1;
+        position: absolute;
+        top: 58px;
+        left: 0;
         border-radius: 50%;
-        pointer-events: none;
-        user-select: none;
-        transform: scale(1);
-        transition: transform .3s ease-in-out, opacity .2s ease-in-out;
-        mix-blend-mode: difference;
-        background: #fff;
-        z-index: 999;
-        
+        animation: shadow 0.58s linear infinite;
+        -o-animation: shadow 0.58s linear infinite;
+        -ms-animation: shadow 0.58s linear infinite;
+        -webkit-animation: shadow 0.58s linear infinite;
+        -moz-animation: shadow 0.58s linear infinite;
+      }
+
+      &::after {
+        content: '';
+        width: 49px;
+        height: 49px;
+        background: #000000;
+        position: absolute;
+        top: 0;
+        left: 0;
+        border-radius: 3px;
+        animation: cssload-animate 0.58s linear infinite;
+        -o-animation: cssload-animate 0.58s linear infinite;
+        -ms-animation: cssload-animate 0.58s linear infinite;
+        -webkit-animation: cssload-animate 0.58s linear infinite;
+        -moz-animation: cssload-animate 0.58s linear infinite;
+      }
+    }
+
+    // 효과 : https://www.theappguruz.com/tag-tools/web/CSSAnimations/
+    // #loading-imgBox {
+    //     @include flex (center, center);
+    //     width: 100%;
+    //     height: 100vh;
+
+    //     .loading-img {
+    //         @include flex (center, center);
+    //         width: 12%;
+    //         top: -20%;
+    //         right: -18%;
+    //         position: relative;
+    //         //
+    //         -webkit-backface-visibility: visible !important;
+    //         backface-visibility: visible !important;
+    //         -webkit-animation-name: flipIn;
+    //         animation-duration: 1.3s;
+    //         -webkit-animation-fill-mode: both;
+    //         animation-fill-mode: both;
+
+    //         >img {
+    //             width: 100%;
+    //             position: absolute;
+    //         }
+    //     }
+    // }
+
+    // 로딩 텍스트 효과 : https://wsss.tistory.com/48
+    #loading-textBox {
+      top: 50%;
+      left: 50%;
+      position: absolute;
+      transform: translate(-50%, -50%);
+      -webkit-font-smoothing: antialiased;
+
+      >h1 {
+        @include font();
+        height: 100%;
+        font-size: 50px;
+
+        >span {
+          top: 50px;
+          display: inline-block;
+          position: relative;
+          animation: bounce .3s ease infinite alternate;
+          color: rgb(0, 0, 0);
+          text-shadow:
+            0 1px 0 #000000,
+            0 2px 0 #000000,
+            0 3px 0 #CCC,
+            0 4px 0 #CCC,
+            0 5px 0 #CCC,
+            0 6px 0 transparent,
+            0 7px 0 transparent,
+            0 8px 0 transparent,
+            0 9px 0 transparent,
+            0 10px 10px rgba(0, 0, 0, .4);
+
+          &:nth-child(2) {
+            animation-delay: .1s;
+          }
+
+          &:nth-child(3) {
+            animation-delay: .2s;
+          }
+
+          &:nth-child(4) {
+            animation-delay: .3s;
+          }
+
+          &:nth-child(5) {
+            animation-delay: .4s;
+          }
+
+          &:nth-child(6) {
+            animation-delay: .5s;
+          }
+
+          &:nth-child(7) {
+            animation-delay: .6s;
+          }
+
+          &:nth-child(8) {
+            animation-delay: .7s;
+          }
+
+          &:nth-child(9) {
+            animation-delay: .8s;
+          }
+        }
+      }
+    }
+
+  }
+
+  #body-wrap {
+    display: none;
+    // 고정된 파티클, 웨이브 css는 맨 아래
+
+    // font: Rammetto One > https://akashraj9828.github.io/svg-text-animation-generator/ 
+    >header {
+      position: relative;
+
+      >img {
+        position: fixed;
+        width: 800px;
+        height: 950px;
+        top: -100px;
+        right: -100px;
+        transform: rotate(50deg);
+      }
+    }
+
+    .svg-textWrap {
+      &1 {
+        width: 500%;
+        height: 250px;
+        position: absolute;
+        display: flex;
+        top: -20px;
+
+        .svg1 {
+          will-change: transform;
+          animation: marquee1 40s linear infinite;
+          padding-left: 50px;
+        }
+
+        .svg2 {
+          will-change: transform;
+          animation: marquee2 40s linear infinite;
+        }
+      }
+
+      &2 {
+        width: 100%;
+        height: 350px;
+        position: relative;
+
+        .svg4 {
+          position: absolute;
+          top: 140px;
+        }
+
+      }
 
     }
 
-    .active {
-        transform: scale(10);
-    }
+    //section 1
+    #profile {
+      @include flex(normal, normal);
+      width: 100%;
+      height: 1400px;
+      margin-left: 8%;
 
-    #loading-wrap {
-        background-image: url("/img/loading.jpg");
-        background-position: center;
-        background-repeat: no-repeat;
-        background-size: cover;
-        display: block;
-        overflow: hidden;
+      #inform {
+        @include flex(center, center);
+        width: 600px;
+        height: 800px;
+        flex-direction: column;
+        // background-color: pink;
 
-        //효과 : https://www.theappguruz.com/tag-tools/web/CSSAnimations/
-        #loading-imgBox {
-            @include flex (center, center);
+        .inform-img {
+          width: 550px;
+          height: 550px;
+          // background-color: blue;
+          border-radius: 49% 49% 0 0;
+          // border: 1px solid black;
+          margin-bottom: 15px;
+          position: relative;
+
+          >img {
             width: 100%;
-            height: 100vh;
-
-            .loading-img {
-                @include flex (center, center);
-                width: 12%;
-                top: -20%;
-                right: -18%;
-                position: relative;
-                //
-                -webkit-backface-visibility: visible !important;
-                backface-visibility: visible !important;
-                -webkit-animation-name: flipIn;
-                animation-duration: 1.3s;
-                -webkit-animation-fill-mode: both;
-                animation-fill-mode: both;
-
-                >img {
-                    width: 100%;
-                    position: absolute;
-                }
-            }
-        }
-
-        // 로딩 텍스트 효과 : https://wsss.tistory.com/48
-        #loading-textBox {
-            top: 55%;
-            right: 21%;
             position: absolute;
-            -webkit-font-smoothing: antialiased;
-
-            >h1 {
-                @include font();
-                height: 100%;
-                font-size: 50px;
-
-                >span {
-                    top: 50px;
-                    display: inline-block;
-                    position: relative;
-                    animation: bounce .3s ease infinite alternate;
-                    color: rgb(0, 0, 0);
-                    text-shadow:
-                        0 1px 0 #000000,
-                        0 2px 0 #000000,
-                        0 3px 0 #CCC,
-                        0 4px 0 #CCC,
-                        0 5px 0 #CCC,
-                        0 6px 0 transparent,
-                        0 7px 0 transparent,
-                        0 8px 0 transparent,
-                        0 9px 0 transparent,
-                        0 10px 10px rgba(0, 0, 0, .4);
-
-                    &:nth-child(2) {
-                        animation-delay: .1s;
-                    }
-
-                    &:nth-child(3) {
-                        animation-delay: .2s;
-                    }
-
-                    &:nth-child(4) {
-                        animation-delay: .3s;
-                    }
-
-                    &:nth-child(5) {
-                        animation-delay: .4s;
-                    }
-
-                    &:nth-child(6) {
-                        animation-delay: .5s;
-                    }
-
-                    &:nth-child(7) {
-                        animation-delay: .6s;
-                    }
-
-                    &:nth-child(8) {
-                        animation-delay: .7s;
-                    }
-
-                    &:nth-child(9) {
-                        animation-delay: .8s;
-                    }
-                }
-            }
+          }
         }
 
-    }
+        .inform-text {
+          @include font();
+          width: 550px;
+          padding-top: 20px;
+          border: 3px solid black;
+          border-radius: 20px;
+          padding: 30px;
 
-    #body-wrap {
-        display: none;
-        // 고정된 파티클, 웨이브 css는 맨 아래
-
-        // font: Rammetto One > https://akashraj9828.github.io/svg-text-animation-generator/ 
-        > header {
-            position: relative;
-
-            > img {
-                position: absolute;
-                width: 800px;
-                height: 600px;
-                top: -100px;
-                right: -100px;
-            }
-        }
-
-        .svg-textWrap {
-            &1 {
-                width: 100%;
-                height: 350px;
-            }
-
-            &2 {
-                width: 100%;
-                height: 350px;
-            }
-            // position: relative;
-
-            .svg{
-                &1{
-                    margin-top: 20px;
-                    padding-left: 20px;
-                    text-align: left;
-                }
-                &2 {
-                    text-align: left;
-                    padding-top: 20px;
-                    padding-left: 20px;
-                    
-                }
-
-                &3 {
-                    padding-left: 40px;
-                }
-            } 
-        }
-
-        //cut img
-       
-        #scroll-text{
+          &::after {
+            content: '';
             position: absolute;
-            top: 50%;
+            top: 0;
             left: 50%;
-            transform: translate(-50%, -50%);
-            
-            >h1 {
-                @include font();
-                position: absolute;
-                text-align: center;
-                font-size: 2rem;
-                opacity: 1;
-                color: black;
-            }
+            width: 0;
+            height: 0;
+            border: 37px solid transparent;
+            border-bottom-color: rgb(0, 0, 0);
+            border-top: 0;
+            border-right: 0;
+            margin-left: -40%;
+            margin-top: -37px;
+          }
+
+          color: black;
+
+
+
+          >h1 {
+            font-size: 4rem;
+            margin-bottom: 5px;
+          }
+
+          >h4 {
+            font-size: 2rem
+          }
 
         }
+      }
 
-        //section 1
-        #profile {
-            @include flex(center, normal);
-            width: 100%;
-            height: 1300px;
+      #boards {
+        @include flex(center, center);
+        flex-direction: column;
+        width: 800px;
+        height: 950px;
+        // margin-top: 250px;
+        // background-color: pink;
 
-            #inform {
-                @include flex(center, center);
-                width: 600px;
-                height: 800px;
-                flex-direction: column;
-                // background-color: pink;
+        .board {
+          width: 500px;
+          height: 100px;
+          // background-color: rgb(66, 66, 66);
+          // border: 3px solid rgb(0, 0, 0);
+          border-bottom: 1px solid black;
+          margin-bottom: 10px;
+          margin-top: 10px;
+          text-align: center;
 
-                .inform-img {
-                    width: 550px;
-                    height: 550px;
-                    // background-color: blue;
-                    border-radius: 49% 49% 0 0;
-                    border: 1px solid black;
-                    margin-bottom: 15px;
-                    position: relative;
-
-                    >img {
-                        width: 100%;
-                        position: absolute;
-                    }
-                }
-
-                .inform-text {
-                    @include font();
-                    width: 550px;
-                    height: 150px;
-                    padding-top: 20px;
-                    color: black;
-                    
-                    
-
-                    > h1 {
-                        font-size: 4rem;
-                        margin-bottom: 5px;
-                    }
-
-                    > h4 {
-                        font-size: 2rem
-                    }
-                    
-                }
-            }
-
-            #boards {
-                @include flex(center, center);
-                flex-direction: column;
-                width: 800px;
-                height: 950px;
-                // margin-top: 250px;
-                // background-color: pink;
-
-                .board {
-                    width: 500px;
-                    height: 100px;
-                    // background-color: rgb(66, 66, 66);
-                    // border: 3px solid rgb(0, 0, 0);
-                    border-bottom: 1px solid black;
-                    margin-bottom: 10px;
-                    margin-top: 10px;
-                    text-align: center;
-                    > h1 {
-                        @include font();
-                        color:#000000;
-                        line-height: 4em;
-                        font-size: 2rem;
-                    }
-                }
-            }
+          >h1 {
+            @include font();
+            color: #000000;
+            line-height: 4em;
+            font-size: 2rem;
+          }
         }
-
-        //section2
-        #projects-wrap {
-            width: 400%;
-            overscroll-behavior: none;
-            display: flex;
-            flex-wrap: nowrap;
-            // background-color: pink;
-            position: relative;
-            z-index: 1;
-
-            .project {
-                @include flex(center, center);
-                width: 100%;
-                height: 963px;
-                // background-color: pink;
-                padding-left: 50px;
-            
-
-                .screen {
-                    @include flex(center, center);
-                    width: 1805px;
-                    height: 911px;
-                    // background-color: gold;
-                    // border: 4px solid black;
-                    position: relative;
-                    
-                }
-
-                .screen-text {
-                    width: 400px;
-                    height: 100%;
-                    // background-color: tomato;
-                }
-
-                .screen-view {
-                    width: 1400px;
-                    height: 100%;
-                    background-color: rgb(188, 114, 127);
-                    transition: all 0.5s;
-                    position: relative;
-                    overflow:hidden;
-                    
-                   
-                    > img {
-                        width: 100%;
-                        top: 0px;
-                        position: absolute;
-                    }
-                }
-
-            }
-        }
+      }
     }
+
+    //section2
+    #projects-wrap {
+      width: 400%;
+      overscroll-behavior: none;
+      display: flex;
+      flex-wrap: nowrap;
+      // background-color: pink;
+      position: relative;
+      z-index: 1;
+
+      .project {
+        @include flex(center, center);
+        width: 100%;
+        height: 963px;
+        // background-color: pink;
+        padding-left: 50px;
+        // justify-content: space-around;
+
+
+        .screen {
+          @include flex(space-between, center);
+          width: 100%;
+          height: 911px;
+          // background-color: gold;
+          // border: 4px solid black;
+          position: relative;
+
+        }
+
+        .screen-text {
+          width: 550px;
+          height: 100%;
+          // background-color: tomato;
+        }
+
+        .screen-view {
+          width: 1282px;
+          height: 100%;
+          background-color: rgb(188, 114, 127);
+          transition: all 0.5s;
+          position: relative;
+          overflow: hidden;
+
+
+          >img {
+            width: 100%;
+            top: 0px;
+            position: absolute;
+          }
+        }
+
+      }
+    }
+  }
 }
 
 //end
@@ -372,68 +435,70 @@ body {
 
 // 웨이브 효과 : https://www.youtube.com/watch?v=MMNEEdGa5eE&list=LL&index=20
 #only-fixed {
-    width: 100%;
-    z-index: 800;
-    position: fixed;
+  width: 100%;
+  z-index: 800;
+  position: fixed;
 }
 
 #wave-wrap {
-    width: 100%;
+  width: 100%;
 }
 
 .waveBox {
+  width: 100%;
+  height: 150px;
+  position: absolute;
+  bottom: 0;
+
+  .wave {
     width: 100%;
-    height: 150px;
+    height: 70px;
     position: absolute;
-    bottom: 0;
+    background-image: url("../img/wave_black.png");
+    background-size: 1000px 70px;
+    mix-blend-mode: difference;
+    z-index: 999;
 
-    .wave {
-        width: 100%;
-        height: 70px;
-        position: absolute;
-        background-image: url("../img/wave_black.png");
-        background-size: 1000px 70px;
-
-        &1 {
-            animation: animate 30s linear infinite;
-            z-index: 8;
-            opacity: 1;
-            animation-delay: 0s;
-            bottom: 0;
-        }
-
-        &2 {
-            animation: animate2 15s linear infinite;
-            z-index: 7;
-            opacity: 0.5;
-            animation-delay: -5s;
-            bottom: 10px;
-        }
-
-        &3 {
-            animation: animate 30s linear infinite;
-            z-index: 6;
-            opacity: 0.2;
-            animation-delay: -2s;
-            bottom: 15px;
-        }
-
-        &4 {
-            animation: animate2 5s linear infinite;
-            z-index: 5;
-            opacity: 0.7;
-            animation-delay: -5s;
-            bottom: 20px;
-        }
+    &1 {
+      animation: animate 30s linear infinite;
+      z-index: 8;
+      opacity: 1;
+      animation-delay: 0s;
+      bottom: 0;
     }
+
+    &2 {
+      animation: animate2 15s linear infinite;
+      z-index: 7;
+      opacity: 0.5;
+      animation-delay: -5s;
+      bottom: 10px;
+    }
+
+    &3 {
+      animation: animate 30s linear infinite;
+      z-index: 6;
+      opacity: 0.2;
+      animation-delay: -2s;
+      bottom: 15px;
+    }
+
+    &4 {
+      animation: animate2 5s linear infinite;
+      z-index: 5;
+      opacity: 0.7;
+      animation-delay: -5s;
+      bottom: 20px;
+    }
+  }
 }
 
 .waveBlock {
-    width: 100%;
-    height: 2000px;
-    background-color: black;
-    position: absolute;
-    z-index: 1;
+  width: 100%;
+  height: 2000px;
+  background-color: black;
+  position: absolute;
+  z-index: 1;
 }
 
 // 로딩 파티클 효과 : https://codepen.io/Paolo-Duzioni/pen/MQmbJo
@@ -446,162 +511,364 @@ $particle-max-speed: 20000; // ms
 $particle-max-delay: 15000; // ms
 
 .particle-container {
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 100%;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
 
-    
 
-    .particle {
-        z-index: 1;
-        opacity: 0;
-        position: fixed;
-        bottom: -$particle-size;
-        width: $particle-size;
-        height: $particle-size;
-        background-color: rgb(0, 0, 0);
-        border-radius: 50%;
+  .particle {
+    z-index: 1;
+    opacity: 0;
+    position: fixed;
+    bottom: -$particle-size;
+    width: $particle-size;
+    height: $particle-size;
+    background-color: rgb(0, 0, 0);
+    border-radius: 50%;
 
-        // Randomize bubles
-        @for $i from 1 through $particle-count {
 
-            // random animation speed
-            $speed: random($particle-max-speed) + 0ms;
 
-            @if $speed < $particle-min-speed {
-                $speed: $particle-min-speed + 0ms;
-            }
+    // Randomize bubles
+    @for $i from 1 through $particle-count {
 
-            &:nth-child(#{$i}) {
-                left: random(100) + 0%;
-                animation: blow $speed infinite;
-                animation-delay: random($particle-max-delay) + 0ms;
-            }
-        }
+      // random animation speed
+      $speed: random($particle-max-speed) + 0ms;
 
+      @if $speed < $particle-min-speed {
+        $speed: $particle-min-speed + 0ms;
+      }
+
+      &:nth-child(#{$i}) {
+        left: random(100) + 0%;
+        animation: blow $speed infinite;
+        animation-delay: random($particle-max-delay) + 0ms;
+      }
     }
+
+  }
 }
 
 
 // 로딩화면 이미지 keyframe
-@keyframes flipIn {
-    0% {
-        -webkit-transform: perspective(10400px) rotate3d(0, 1, 0, 90deg);
-        transform: perspective(1000px) rotate3d(0, 1, 0, 90deg);
-        -webkit-transition-timing-function: ease-in;
-        transition-timing-function: ease-in;
-        // opacity: 0;
-    }
+// @keyframes flipIn {
+//     0% {
+//         -webkit-transform: perspective(10400px) rotate3d(0, 1, 0, 90deg);
+//         transform: perspective(1000px) rotate3d(0, 1, 0, 90deg);
+//         -webkit-transition-timing-function: ease-in;
+//         transition-timing-function: ease-in;
+//         // opacity: 0;
+//     }
 
-    40% {
-        -webkit-transform: perspective(10400px) rotate3d(0, 1, 0, -20deg);
-        transform: perspective(1000px) rotate3d(0, 1, 0, -20deg);
-        -webkit-transition-timing-function: ease-in;
-        transition-timing-function: ease-in;
-    }
+//     40% {
+//         -webkit-transform: perspective(10400px) rotate3d(0, 1, 0, -20deg);
+//         transform: perspective(1000px) rotate3d(0, 1, 0, -20deg);
+//         -webkit-transition-timing-function: ease-in;
+//         transition-timing-function: ease-in;
+//     }
 
-    60% {
-        -webkit-transform: perspective(400px) rotate3d(0, 1, 0, 10deg);
-        transform: perspective(1000px) rotate3d(0, 1, 0, 0deg);
-        opacity: 1;
-    }
+//     60% {
+//         -webkit-transform: perspective(400px) rotate3d(0, 1, 0, 10deg);
+//         transform: perspective(1000px) rotate3d(0, 1, 0, 0deg);
+//         opacity: 1;
+//     }
 
-    80% {
-        -webkit-transform: perspective(10400px) rotate3d(0, 1, 0, -5deg);
-        transform: perspective(1000px) rotate3d(0, 1, 0, -5deg);
-    }
+//     80% {
+//         -webkit-transform: perspective(10400px) rotate3d(0, 1, 0, -5deg);
+//         transform: perspective(1000px) rotate3d(0, 1, 0, -5deg);
+//     }
 
-    100% {
-        -webkit-transform: perspective(1000px);
-        transform: perspective(1000px);
-    }
-}
+//     100% {
+//         -webkit-transform: perspective(1000px);
+//         transform: perspective(1000px);
+//     }
+// }
 
 // 로딩화면 텍스트 keyframe
 @keyframes bounce {
-    100% {
-        top: 5px;
-        text-shadow: 0 1px 0 #CCC,
-            0 2px 0 #CCC,
-            0 3px 0 #CCC,
-            0 4px 0 #CCC,
-            0 5px 0 #CCC,
-            0 6px 0 #CCC,
-            0 7px 0 #CCC,
-            0 8px 0 #CCC,
-            0 9px 0 #CCC,
-            0 50px 25px rgba(0, 0, 0, .2);
-    }
+  100% {
+    top: 5px;
+    text-shadow: 0 1px 0 #CCC,
+      0 2px 0 #CCC,
+      0 3px 0 #CCC,
+      0 4px 0 #CCC,
+      0 5px 0 #CCC,
+      0 6px 0 #CCC,
+      0 7px 0 #CCC,
+      0 8px 0 #CCC,
+      0 9px 0 #CCC,
+      0 50px 25px rgba(0, 0, 0, .2);
+  }
 }
 
 // 웨이브 keyframe
 @keyframes animate {
-    0% {
-        background-position-x: 0;
-    }
+  0% {
+    background-position-x: 0;
+  }
 
-    100% {
-        background-position-x: 1000px;
-    }
+  100% {
+    background-position-x: 1000px;
+  }
 }
 
 @keyframes animate2 {
-    0% {
-        background-position-x: 0;
-    }
+  0% {
+    background-position-x: 0;
+  }
 
-    100% {
-        background-position-x: -1000px;
-    }
+  100% {
+    background-position-x: -1000px;
+  }
 }
 
 // 파티클 keyframe
 @keyframes blow {
-    0% {
-        opacity: 0;
-        transform: translate(0, 0);
-    }
+  0% {
+    opacity: 0;
+    transform: translate(0, 0);
+  }
 
-    20% {
-        opacity: 1;
-    }
+  20% {
+    opacity: 1;
+  }
 
-    100% {
-        opacity: 0;
-        transform: translate(0, -$particle-distance) scale(.2);
-    }
+  100% {
+    opacity: 0;
+    transform: translate(0, -$particle-distance) scale(.2);
+  }
 }
 
-// svg text keyframe
+// svg 텍스트 keyframe
 @-webkit-keyframes svg-text-anim {
-    40% {
-       stroke-dashoffset: 0;
-       fill: transparent;
-     }
-     60% {
-       stroke-dashoffset: 0;
-       fill: #000000;
-     }
-     100% {
-       stroke-dashoffset: 0;
-       fill: #000000;
-     }
-     
- }
- /* Most browsers */
- @keyframes svg-text-anim {
-    40% {
-       stroke-dashoffset: 0;
-       fill: transparent;
-     }
-     60% {
-       stroke-dashoffset: 0;
-       fill: #000000;
-     }
-     100% {
-       stroke-dashoffset: 0;
-       fill: #000000;
-     }
-     
- }
+  40% {
+    stroke-dashoffset: 0;
+    fill: transparent;
+  }
+
+  60% {
+    stroke-dashoffset: 0;
+    fill: #000000;
+  }
+
+  100% {
+    stroke-dashoffset: 0;
+    fill: #000000;
+  }
+
+}
+
+@keyframes svg-text-anim {
+  40% {
+    stroke-dashoffset: 0;
+    fill: transparent;
+  }
+
+  60% {
+    stroke-dashoffset: 0;
+    fill: #000000;
+  }
+
+  100% {
+    stroke-dashoffset: 0;
+    fill: #000000;
+  }
+
+}
+
+//로딩 미니박스 keyframes
+@keyframes cssload-animate {
+  17% {
+    border-bottom-right-radius: 3px;
+  }
+
+  25% {
+    transform: translateY(9px) rotate(22.5deg);
+  }
+
+  50% {
+    transform: translateY(18px) scale(1, 0.9) rotate(45deg);
+    border-bottom-right-radius: 39px;
+  }
+
+  75% {
+    transform: translateY(9px) rotate(67.5deg);
+  }
+
+  100% {
+    transform: translateY(0) rotate(90deg);
+  }
+}
+
+@-o-keyframes cssload-animate {
+  17% {
+    border-bottom-right-radius: 3px;
+  }
+
+  25% {
+    -o-transform: translateY(9px) rotate(22.5deg);
+  }
+
+  50% {
+    -o-transform: translateY(18px) scale(1, 0.9) rotate(45deg);
+    border-bottom-right-radius: 39px;
+  }
+
+  75% {
+    -o-transform: translateY(9px) rotate(67.5deg);
+  }
+
+  100% {
+    -o-transform: translateY(0) rotate(90deg);
+  }
+}
+
+@-ms-keyframes cssload-animate {
+  17% {
+    border-bottom-right-radius: 3px;
+  }
+
+  25% {
+    -ms-transform: translateY(9px) rotate(22.5deg);
+  }
+
+  50% {
+    -ms-transform: translateY(18px) scale(1, 0.9) rotate(45deg);
+    border-bottom-right-radius: 39px;
+  }
+
+  75% {
+    -ms-transform: translateY(9px) rotate(67.5deg);
+  }
+
+  100% {
+    -ms-transform: translateY(0) rotate(90deg);
+  }
+}
+
+@-webkit-keyframes cssload-animate {
+  17% {
+    border-bottom-right-radius: 3px;
+  }
+
+  25% {
+    -webkit-transform: translateY(9px) rotate(22.5deg);
+  }
+
+  50% {
+    -webkit-transform: translateY(18px) scale(1, 0.9) rotate(45deg);
+    border-bottom-right-radius: 39px;
+  }
+
+  75% {
+    -webkit-transform: translateY(9px) rotate(67.5deg);
+  }
+
+  100% {
+    -webkit-transform: translateY(0) rotate(90deg);
+  }
+}
+
+@-moz-keyframes cssload-animate {
+  17% {
+    border-bottom-right-radius: 3px;
+  }
+
+  25% {
+    -moz-transform: translateY(9px) rotate(22.5deg);
+  }
+
+  50% {
+    -moz-transform: translateY(18px) scale(1, 0.9) rotate(45deg);
+    border-bottom-right-radius: 39px;
+  }
+
+  75% {
+    -moz-transform: translateY(9px) rotate(67.5deg);
+  }
+
+  100% {
+    -moz-transform: translateY(0) rotate(90deg);
+  }
+}
+
+@keyframes shadow {
+
+  0%,
+  100% {
+    transform: scale(1, 1);
+  }
+
+  50% {
+    transform: scale(1.2, 1);
+  }
+}
+
+@-o-keyframes shadow {
+
+  0%,
+  100% {
+    -o-transform: scale(1, 1);
+  }
+
+  50% {
+    -o-transform: scale(1.2, 1);
+  }
+}
+
+@-ms-keyframes shadow {
+
+  0%,
+  100% {
+    -ms-transform: scale(1, 1);
+  }
+
+  50% {
+    -ms-transform: scale(1.2, 1);
+  }
+}
+
+@-webkit-keyframes shadow {
+
+  0%,
+  100% {
+    -webkit-transform: scale(1, 1);
+  }
+
+  50% {
+    -webkit-transform: scale(1.2, 1);
+  }
+}
+
+@-moz-keyframes shadow {
+
+  0%,
+  100% {
+    -moz-transform: scale(1, 1);
+  }
+
+  50% {
+    -moz-transform: scale(1.2, 1);
+  }
+}
+
+//svg 텍스트 무한 가로 로딩
+@keyframes marquee1 {
+  from {
+    transform: translateX(0);
+  }
+
+  to {
+    transform: translateX(-100%);
+  }
+}
+
+@keyframes marquee2 {
+  to {
+    transform: translateX(-100%);
+  }
+
+  from {
+    transform: translateX(0);
+  }
+}

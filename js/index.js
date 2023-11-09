@@ -9,7 +9,7 @@ var promise = new Promise(function (resolve, reject) {
 	show()
 
 	function show() {
-		var showImg = document.querySelectorAll('.loading-img');
+		var showImg = document.querySelectorAll('.cssload-box-loading');
 
 		for (let i = 0; i < showImg.length; i++) {
 			showImg[i].style.display = "none";

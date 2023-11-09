@@ -53,16 +53,17 @@ setTimeout(() => {
             amount: 0.1,
             each: 1,
         },
-        scrollTrigger: {
-            trigger: '#profile',
-            duration: 4,
-            scrub: 3,
-            ease: "back.out(5)",
-            start: "5% top",
-            end: "+=10",
-            //markers: true,
-            toggleActions: "restart none reverse none"
-        }
+        duration: 1,
+        scrub: 2,
+        ease: "bounce",
+        delay: 1,
+        // scrollTrigger: {
+        //     trigger: '#profile',
+        //     start: "5% top",
+        //     end: "+=10",
+        //     //markers: true,
+        //     toggleActions: "restart none reverse none"
+        // }
     });
 
         //profile boards
@@ -71,23 +72,22 @@ setTimeout(() => {
             x: 0,
             delay: 0.3,
             opacity: 1,
-            scrub: 3,
-            duration: 2,
+            scrub: 2,
+            duration: 1,
             ease: "back.out(1)",
             stagger: {
                 amount: 0.5,
                 each: 1,
             },
-            scrollTrigger: {
-                trigger: '#profile',
-                duration: 4,
-                scrub: 3,
-                // ease: "back.out(5)",
-                start: "5% top",
-                end: "+=10",
-                //markers: true,
-                toggleActions: "restart none reverse none"
-            }
+            
+            // scrollTrigger: {
+            //     trigger: '#profile',
+            //     // ease: "back.out(5)",
+            //     start: "5% top",
+            //     end: "+=10",
+            //     //markers: true,
+            //     toggleActions: "restart none reverse none"
+            // }
 
         })
 
