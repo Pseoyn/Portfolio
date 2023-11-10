@@ -30,9 +30,9 @@ setTimeout(() => {
             scrub: 1,
             snap: 1 / (sections.length - 1),
             start: "top top",
-            end: "+=7000",
+            // end: "+=5000",
             // markers: true,
-            // end: document.querySelector("#projects-wrap").offsetWidth,
+            end: document.querySelector("#projects-wrap").offsetWidth,
         }
     });
 
@@ -41,13 +41,13 @@ setTimeout(() => {
     const tl = gsap.timeline();
     const board = gsap.utils.toArray(".board");
 
-    gsap.set(".in", { opacity: 0 })
-    gsap.set(board, { opacity: 0 })
+    gsap.set(".in", { y: -100, opacity: 0 })
+    gsap.set(board, { y: -100, opacity: 0 })
 
     //profile inform img, text 
     tl.to(".in", {
         x: 0,
-        y: 200,
+        y: 0,
         opacity: 1,
         stagger: {
             amount: 0.1,
@@ -68,7 +68,7 @@ setTimeout(() => {
 
         //profile boards
         tl.to(board, {
-            y: 100,
+            y: 0,
             x: 0,
             delay: 0.3,
             opacity: 1,
@@ -78,61 +78,28 @@ setTimeout(() => {
             stagger: {
                 amount: 0.5,
                 each: 1,
-            },
-            
-            // scrollTrigger: {
-            //     trigger: '#profile',
-            //     // ease: "back.out(5)",
-            //     start: "5% top",
-            //     end: "+=10",
-            //     //markers: true,
-            //     toggleActions: "restart none reverse none"
-            // }
-
-        })
-
-        .to("#profile", {
-            y: 250,
-            x: 50,
-            scrollTrigger: {
-                trigger: "#prosile",
-                duration: 4,
-                scrub: 3,
-                ease: "back.out(5)",
-                start: "top top",
-                end: "+=1500",
-                markers: true,
-                toggleActions: "restart none reverse none"
-
             }
         })
-        
-    // 로딩 끝난 후 scroll text
-    gsap.set("#scroll-text > h1", {
-        opacity: 0
-    })
-
-    tl.to("#scroll-text > h1", {
-        opacity: 1,
-        repeat: -1,
-        duration: 1,
-        yoyo: true
-    })
-
-    .to("#scroll-text", {
-        opacity: 0,
-        scrollTrigger: {
-            trigger: '#profile',
-            duration: 4,
-            scrub: 3,
-            // ease: "back.out(5)",
-            start: "5% top",
-            end: "+=10",
-            //markers: true,
-            toggleActions: "restart none reverse none"
-        }
-        
-    });
-
+         // const useImg = gsap.utils.toArray(".use-img");
+        // gsap.set(useImg, { opacity:0, y: -20})
+        // tl.to(useImg,{
+        //     opacity: 1,
+        //     y: 0,
+        //     scrub: 2,
+        //     duration: 4,
+        //     stagger: {
+        //         amount: 3,
+        //         each: 3,
+        //     },
+        //     scrollTrigger: {
+        //         trigger: "#skill",
+        //         pin: true,
+        //         start: "top top",
+        //         end : "+=2000 bottom",
+        //         scrub: 1,
+        //         markers: true,
+              
+        //     }
+        // })
 }, 5000);
 

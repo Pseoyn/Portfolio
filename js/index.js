@@ -3,28 +3,6 @@
 //로딩회면
 var promise = new Promise(function (resolve, reject) {
 
-	var current = 0;
-	imgDuration = 500;
-
-	show()
-
-	function show() {
-		var showImg = document.querySelectorAll('.cssload-box-loading');
-
-		for (let i = 0; i < showImg.length; i++) {
-			showImg[i].style.display = "none";
-		}
-		current++;
-
-		/* currnet 가 4보다 클 경우 1로 초기화, 동기적으로 실행되기 때문에 
-			if 문 조건에 안맞으면 건너뛴다. */
-		if (current > showImg.length) {
-			current = 1;
-		}
-		showImg[current - 1].style.display = "block";
-		setTimeout(show, imgDuration);
-	}
-
 	//5초 실행
 	setTimeout(function () {
 		resolve();
@@ -81,4 +59,4 @@ tl.to(wave, {
 		ease: 'back.out(1.5)',
 	});
 
-
+//
