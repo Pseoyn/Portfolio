@@ -67,6 +67,10 @@ body {
     transform: scale(10);
   }
 
+  .active2 {
+    transform: scale(4);
+  }
+
   #loading-wrap {
 
     height: 100vh;
@@ -243,139 +247,7 @@ body {
       }
     }
 
-    .svg-textWrap {
-      &1 {
-        width: 100%;
-        height: 250px;
-        position: fixed;
-        display: flex;
-        top: 0px;
-        left: 40%;
-        rotate: 90deg;
-        // background-color: blue;
-        z-index: 1;
 
-        .svg1 {
-          will-change: transform;
-          animation: marquee1 40s linear infinite;
-          padding-left: 50px;
-        }
-
-        .svg2 {
-          will-change: transform;
-          animation: marquee2 40s linear infinite;
-        }
-      }
-
-      &2 {
-        width: 100%;
-        height: 350px;
-        position: relative;
-
-        .svg4 {
-          position: absolute;
-          top: 140px;
-        }
-
-      }
-
-    }
-
-    //section 1
-    #profile {
-      @include flex(normal, normal);
-      width: 100%;
-      height: 1000px;
-      margin-left: 8%;
-
-      #inform {
-        @include flex(center, center);
-        width: 600px;
-        height: 800px;
-        flex-direction: column;
-        // background-color: pink;
-
-        .inform-img {
-          width: 450px;
-          height: 450px;
-          border-radius: 49% 49% 0 0;
-          margin-bottom: 15px;
-          position: relative;
-
-          >img {
-            width: 100%;
-            position: absolute;
-          }
-        }
-
-        .inform-text {
-          @include font();
-          width: 550px;
-          padding-top: 20px;
-          border: 3px solid black;
-          border-radius: 20px;
-          padding: 30px;
-
-          &::after {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 50%;
-            width: 0;
-            height: 0;
-            border: 37px solid transparent;
-            border-bottom-color: rgb(0, 0, 0);
-            border-top: 0;
-            border-right: 0;
-            margin-left: -40%;
-            margin-top: -37px;
-          }
-
-          color: black;
-
-
-
-          >h1 {
-            font-size: 4rem;
-            margin-bottom: 5px;
-          }
-
-          >h4 {
-            font-size: 2rem
-          }
-
-        }
-      }
-
-      #boards {
-        @include flex(center, center);
-        flex-direction: column;
-        width: 800px;
-        height: 800px;
-        // margin-top: 250px;
-        // background-color: pink;
-
-        .board {
-          width: 500px;
-          height: 100px;
-          // background-color: rgb(66, 66, 66);
-          // border: 3px solid rgb(0, 0, 0);
-          border-bottom: 1px solid black;
-          margin-bottom: 10px;
-          margin-top: 10px;
-          text-align: center;
-
-          >h1 {
-            @include font();
-            color: #000000;
-            line-height: 4em;
-            font-size: 2rem;
-          }
-        }
-      }
-    }
-
-    //section2
     #projects-wrap {
       width: 400%;
       overscroll-behavior: none;
@@ -385,8 +257,10 @@ body {
       position: relative;
       z-index: 1;
 
+
       .project {
         @include flex(center, center);
+
         width: 100%;
         height: 963px;
         // background-color: pink;
@@ -406,26 +280,34 @@ body {
 
         .screen-text {
           @include font();
+          @include flex(center, normal);
+          flex-direction: column;
           width: 550px;
-          height: 100%;
+          height: 800px;
           padding: 50px;
-          background-color: tomato;
+          // margin-bottom: 50px;
+          margin: 20px;
+
 
           >h2 {
-            font-size: 4rem;
+            font-size: 2.5rem;
+            margin-bottom: 8px;
           }
 
           >h1 {
-            font-size: 3rem;
+            font-size: 2.4rem;
+            margin-bottom: 30px;
           }
 
           >p {
-            font-size: 1.5em;
+            font-size: 1.2em;
+            border: 1px solid black;
+            padding: 20px;
           }
 
           .use {
             margin-top: 30px;
-            margin-left: 20px;
+            margin-left: 0px;
 
             >li {
               font-size: 1.5rem;
@@ -433,127 +315,41 @@ body {
           }
 
           .buttonBox {
-            // > button {
-            //   background-color: transparent;
+            margin-top: 40px;
 
-            // }
-          }
+            >button {
+              width: 100px;
+              height: 100px;
+              background-color: transparent;
+              transition: all 0.5s;
+              border: 1px solid black;
+              border-radius: 50%;
+              margin-left: 30px;
 
-          $openSans: 'Open Sans', Helvetica, Arial, sans-serif;
+              &:hover {
+                background-color: #000000;
+                color: white;
+                cursor: pointer;
 
-          body {
-            background: #333;
-            font-family: $openSans;
-          }
-
-          .buttons {
-            margin-top: 50px;
-            text-align: center;
-          }
-
-          $cyan: #0fe0f5;
-          $dark: #222;
-          $borderW: 6px;
-
-          .blob-btn {
-            $numOfBlobs: 4;
-            z-index: 1;
-            position: relative;
-            padding: 20px 46px;
-            margin-bottom: 30px;
-            text-align: center;
-            text-transform: uppercase;
-            color: $cyan;
-            font-size: 16px;
-            font-weight: bold;
-            background-color: transparent;
-            outline: none;
-            border: none;
-            transition: color 0.5s;
-            cursor: pointer;
-
-            &:before {
-              content: "";
-              z-index: 1;
-              position: absolute;
-              left: 0;
-              top: 0;
-              width: 100%;
-              height: 100%;
-              border: $borderW solid $cyan;
-            }
-
-            &:after {
-              content: "";
-              z-index: -2;
-              position: absolute;
-              left: $borderW*1.5;
-              top: $borderW*1.5;
-              width: 100%;
-              height: 100%;
-              border: $borderW solid $dark;
-              transition: all 0.3s 0.2s;
-            }
-
-            &:hover {
-              color: $dark;
-
-              &:after {
-                transition: all 0.3s;
-                left: 0;
-                top: 0;
               }
             }
 
-            &__inner {
-              z-index: -1;
-              overflow: hidden;
-              position: absolute;
-              left: 0;
-              top: 0;
-              width: 100%;
-              height: 100%;
-            }
+            >a {
+              padding: 45px 17px;
+              background-color: transparent;
+              transition: all 0.5s;
+              border: 1px solid black;
+              border-radius: 50%;
+              margin-left: 30px;
 
-            // additional container created, because in FF blobs are breaking overflow:hidden of element with svg gooey filter
-            &__blobs {
-              position: relative;
-              display: block;
-              height: 100%;
-              filter: url('#goo');
-            }
-
-            &__blob {
-              position: absolute;
-              top: $borderW;
-              width: 100% / $numOfBlobs;
-              height: 100%;
-              background: $cyan;
-              border-radius: 100%;
-              transform: translate3d(0, 150%, 0) scale(1.7);
-              transition: transform 0.45s;
-
-              @supports(filter: url('#goo')) {
-                transform: translate3d(0, 150%, 0) scale(1.4);
-              }
-
-              @for $i from 1 through $numOfBlobs {
-                &:nth-child(#{$i}) {
-                  left: ($i - 1) * (120% / $numOfBlobs);
-                  transition-delay: ($i - 1) * 0.08s;
-                }
-              }
-
-              .blob-btn:hover & {
-                transform: translateZ(0) scale(1.7);
-
-                @supports(filter: url('#goo')) {
-                  transform: translateZ(0) scale(1.4);
-                }
+              &:hover {
+                background-color: #000000;
+                color: white;
               }
             }
-
           }
+
+
         }
 
         .screen-view {
@@ -574,8 +370,32 @@ body {
 
       }
     }
+
+    #footer {
+      width: 100%;
+      height: 100vh;
+      // background-color: black;
+
+    }
+
+    .svg-textWrap {
+
+      width: 100%;
+      height: 100vh;
+      position: relative;
+
+      .svg {
+        position: absolute;
+        top: 45%;
+        left: 50%;
+        transform: translate(-50%, -45%);
+      }
+
+    }
+
   }
 }
+
 
 //end
 
@@ -586,6 +406,16 @@ body {
   width: 100%;
   z-index: 800;
   position: fixed;
+
+
+  >img {
+    position: fixed;
+    width: 800px;
+    height: 950px;
+    top: -100px;
+    right: -100px;
+    transform: rotate(50deg);
+  }
 }
 
 #wave-wrap {
@@ -966,22 +796,22 @@ $particle-max-delay: 15000; // ms
 }
 
 //svg 텍스트 무한 가로 로딩
-@keyframes marquee1 {
-  from {
-    transform: translateX(0);
-  }
+// @keyframes marquee1 {
+//   from {
+//     transform: translateX(0);
+//   }
 
-  to {
-    transform: translateX(-100%);
-  }
-}
+//   to {
+//     transform: translateX(-100%);
+//   }
+// }
 
-@keyframes marquee2 {
-  to {
-    transform: translateX(-100%);
-  }
+// @keyframes marquee2 {
+//   to {
+//     transform: translateX(-100%);
+//   }
 
-  from {
-    transform: translateX(0);
-  }
-}
+//   from {
+//     transform: translateX(0);
+//   }
+// }

@@ -3,7 +3,7 @@
 // 선택자
 const cursor = document.querySelector(".cursor");
 const contentEm = document.querySelectorAll(".screen-view");
-const infoLi = document.querySelectorAll(".info.bottom li");
+const infoLi = document.querySelectorAll(".hover");
 
 // 움직임 효과
 document.addEventListener("mousemove", function(e){
@@ -17,6 +17,15 @@ contentEm.forEach(elem => {
     });
     elem.addEventListener("mouseleave", () => {
         cursor.classList.remove("active");
+    });
+});
+
+infoLi.forEach(elem2 => {
+    elem2.addEventListener("mouseenter", () => {
+        cursor.classList.add("active2");
+    });
+    elem2.addEventListener("mouseleave", () => {
+        cursor.classList.remove("active2");
     });
 });
 
