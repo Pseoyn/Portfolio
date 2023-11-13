@@ -1,0 +1,108 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  text-decoration: none;
+}
+
+ul,
+li,
+ol {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+#wrap {
+  width: 100%;
+}
+#wrap .container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100vh;
+  top: 0;
+}
+#wrap .container svg {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+}
+#wrap .container header {
+  height: 100vh;
+  z-index: 2;
+  position: relative;
+  font-family: Grandmaster, Helvetica, Arial, sans-serif;
+}
+#wrap .container header nav {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 400px;
+  height: 100vh;
+  position: fixed;
+  right: 0;
+  background-color: rgb(148, 148, 148);
+}
+#wrap .container header nav ul {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  height: 50%;
+  flex-direction: column;
+}
+#wrap .container header nav ul li {
+  font-size: 50px;
+}
+#wrap .container #project {
+  width: 1750px;
+  height: 850px;
+  background-color: rgba(236, 227, 227, 0.7);
+  z-index: 1;
+  box-shadow: inset 2px 1px 5px 0px white;
+  overflow: hidden;
+  position: relative;
+}
+#wrap .container #project #gallery {
+  height: 140vmax;
+  width: 140vmax;
+  position: absolute;
+}
+#wrap .container #project #gallery .tile {
+  border-radius: 1vmax;
+  position: absolute;
+  transition: transform 800ms ease;
+}
+#wrap .container #project #gallery .tile:nth-child(1) {
+  background-color: rgb(255, 238, 88);
+  height: 14%;
+  width: 20%;
+  left: 5%;
+  top: 5%;
+}
+#wrap .container #project #gallery .tile:nth-child(2) {
+  background-color: rgb(66, 165, 245);
+  height: 24%;
+  width: 14%;
+  left: 42%;
+  top: 12%;
+}
+#wrap .container #project #gallery .tile > img {
+  height: 100%;
+  width: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+  border-radius: inherit;
+  opacity: 0;
+  transition: opacity 800ms ease, transform 800ms ease;
+}
+#wrap .container #project #gallery .tile .tile:hover {
+  transform: scale(1.1);
+}
+#wrap .container #project #gallery .tile .tile:hover > img {
+  opacity: 1;
+  transform: scale(1.01);
+}
