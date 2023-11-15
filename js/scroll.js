@@ -101,5 +101,64 @@ setTimeout(() => {
               
         //     }
         // })
-}, 5000);
+
+        // gsap.set('#project-wrap', {'background-color': '#00000'});
+        tl.fromTo("#body-wrap", {
+            backgroundColor: '#fff',
+        }, {
+            scrollTrigger:{
+                trigger: "#projects-wrap",
+                scrub: 2,
+                start: '-=400 top',
+                end: "bottom bottom",
+            },
+            backgroundColor: 'black',
+            color: 'white',
+            duration: 1,
+            scrub: 2,
+            ease: "back.out(1)",
+            delay: 1,
+        })
+
+        tl.fromTo("#projects-wrap", {
+            opacity: 0
+        }, {
+            opacity:1,
+            duration: 1,
+            scrub: 2,
+            ease: "back.out(1)",
+            scrollTrigger:{
+                trigger: "#projects-wrap",
+                scrub: 2,
+                start: '-=400 top',
+                end: "bottom bottom",
+            },
+        })
+
+        const footer = gsap.utils.toArray('.f-gsap')
+
+        tl.fromTo(footer,{
+            backgroundColor: 'black',
+        },{
+            scrollTrigger:{
+                trigger: "#footer",
+                scrub: 2,
+                start: '-=100 top',
+                end: "bottom bottom",
+                markers: true
+            },
+            backgroundColor: '#fff'
+        })
+
+
+
+        tl.to(".svg2",{
+            xPercent: -20,
+            ease: 'back.out(1)',
+            scrub: 2,
+            duration: 1,
+            target: '#footer'
+        })
+
+    }, 5000);
 

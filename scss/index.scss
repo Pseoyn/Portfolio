@@ -23,7 +23,7 @@
 
 //keyframe 은 맨 아래에
 body {
-  background: url("/img/background_2.jpg") fixed;
+  // background: url("/img/background_2.jpg") fixed;
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
@@ -41,10 +41,10 @@ body {
     left: 50%;
     transform: translate(-50%, -50%);
     // background-color: pink;
-    border: 2px solid white;
+    border: 2px solid rgb(255, 255, 255);
     mix-blend-mode: difference;
     z-index: 1;
-    box-shadow: 0 0 0 100px #ffffff;
+    border-radius: 20px;
   }
 
   .cursor {
@@ -79,6 +79,7 @@ body {
     overflow: hidden;
     margin-top: 0px;
     top: 0%;
+    background-color: #fff;
 
     .loadding-page {
       width: 100%;
@@ -287,7 +288,7 @@ body {
           padding: 50px;
           // margin-bottom: 50px;
           margin: 20px;
-
+          color: #fff;
 
           >h2 {
             font-size: 2.5rem;
@@ -297,17 +298,19 @@ body {
           >h1 {
             font-size: 2.4rem;
             margin-bottom: 30px;
+            
           }
 
           >p {
-            font-size: 1.2em;
-            border: 1px solid black;
-            padding: 20px;
+            font-size: 1.1rem;
+            padding: 20px 0px;
+            line-height: 30px;
+            letter-spacing: 1.2px;
           }
 
           .use {
             margin-top: 30px;
-            margin-left: 0px;
+            margin-left: 20px;
 
             >li {
               font-size: 1.5rem;
@@ -322,13 +325,15 @@ body {
               height: 100px;
               background-color: transparent;
               transition: all 0.5s;
-              border: 1px solid black;
+              border: 1px solid #fff;
               border-radius: 50%;
               margin-left: 30px;
+              mix-blend-mode: difference;
+              color: #fff;
 
               &:hover {
-                background-color: #000000;
-                color: white;
+                background-color: #fff;
+                color: rgb(0, 0, 0);
                 cursor: pointer;
 
               }
@@ -338,13 +343,14 @@ body {
               padding: 45px 17px;
               background-color: transparent;
               transition: all 0.5s;
-              border: 1px solid black;
+              border: 1px solid #fff;
               border-radius: 50%;
               margin-left: 30px;
+              color: #fff;
 
               &:hover {
-                background-color: #000000;
-                color: white;
+                background-color: #ffffff;
+                color: rgb(0, 0, 0);
               }
             }
           }
@@ -353,7 +359,7 @@ body {
         }
 
         .screen-view {
-          width: 1282px;
+          width: 1200px;
           height: 100%;
           background-color: rgb(188, 114, 127);
           transition: all 0.5s;
@@ -372,14 +378,29 @@ body {
     }
 
     #footer {
+      @include font();
+      @include flex( center, center);
       width: 100%;
       height: 100vh;
-      // background-color: black;
 
+      #footer-text{
+        color: black;
+        position: absolute;
+        right: 150px;
+
+        > div {
+          margin-bottom: 40px;
+          > h2 {
+            font-size: 2.2rem;
+          }
+          >h3 {
+            font-size: 1.5rem;
+          }
+        }
+      }
     }
 
     .svg-textWrap {
-
       width: 100%;
       height: 100vh;
       position: relative;
@@ -427,6 +448,7 @@ body {
   height: 150px;
   position: absolute;
   bottom: 0;
+  
 
   .wave {
     width: 100%;
@@ -434,7 +456,7 @@ body {
     position: absolute;
     background-image: url("../img/wave_black.png");
     background-size: 1000px 70px;
-    mix-blend-mode: difference;
+
     z-index: 999;
 
     &1 {
@@ -443,6 +465,7 @@ body {
       opacity: 1;
       animation-delay: 0s;
       bottom: 0;
+      mix-blend-mode: difference;
     }
 
     &2 {
@@ -451,6 +474,7 @@ body {
       opacity: 0.5;
       animation-delay: -5s;
       bottom: 10px;
+      
     }
 
     &3 {
@@ -467,6 +491,7 @@ body {
       opacity: 0.7;
       animation-delay: -5s;
       bottom: 20px;
+      mix-blend-mode: difference;
     }
   }
 }
@@ -494,7 +519,6 @@ $particle-max-delay: 15000; // ms
   left: 0;
   width: 100%;
 
-
   .particle {
     z-index: 1;
     opacity: 0;
@@ -503,6 +527,7 @@ $particle-max-delay: 15000; // ms
     width: $particle-size;
     height: $particle-size;
     background-color: rgb(0, 0, 0);
+
     border-radius: 50%;
 
 
