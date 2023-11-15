@@ -29,15 +29,15 @@ infoLi.forEach(elem2 => {
     });
 });
 
-// 출력용
-infoLi.forEach(info => {
-    info.addEventListener("click", function(){
-        const text = this.textContent || this.innerHTML;
-        cursor.style.mixBlendMode = text;
+// // 출력용
+// infoLi.forEach(info => {
+//     info.addEventListener("click", function(){
+//         const text = this.textContent || this.innerHTML;
+//         cursor.style.mixBlendMode = text;
 
-        infoLi.forEach(li => {
-            li.classList.remove("active");
-            this.classList.add("active");
-        });
-    });
-});
+//         infoLi.forEach(li => {
+//             li.classList.remove("active");
+//             this.classList.add("active");
+//         });
+//     });
+// });
