@@ -25,14 +25,14 @@ setTimeout(() => {
         xPercent: -100 * (sections.length - 1),
         ease: "none",
         scrollTrigger: {
-            trigger: "#projects-wrap",
+            trigger: ".project-gsap",
             pin: true,
             scrub: 1,
             snap: 1 / (sections.length - 1),
             start: "top top",
             // end: "+=5000",
             // markers: true,
-            end: document.querySelector("#projects-wrap").offsetWidth,
+            end: document.querySelector(".project-gsap").offsetWidth,
         }
     });
 
@@ -109,8 +109,8 @@ setTimeout(() => {
             scrollTrigger:{
                 trigger: "#projects-wrap",
                 scrub: 2,
-                start: '-=400 top',
-                end: "bottom bottom",
+                start: '-=300 top',
+                end: "-=100 top",
             },
             backgroundColor: 'black',
             color: 'white',
@@ -130,8 +130,9 @@ setTimeout(() => {
             scrollTrigger:{
                 trigger: "#projects-wrap",
                 scrub: 2,
-                start: '-=400 top',
-                end: "bottom bottom",
+                start: '-=300 top',
+                end: "-=100 top",
+                markers: true
             },
         })
 

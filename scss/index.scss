@@ -12,13 +12,14 @@
 ;
 
 @mixin font() {
-  font-family: 'GangwonEdu_OTFBoldA';
-  src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2201-2@1.0/GangwonEdu_OTFBoldA.woff') format('woff');
-  font-weight: normal;
-  font-style: normal;
+  font-family: 'S-CoreDream-3Light';
 }
 
-;
+@mixin bold-font(){
+  font-family: 'JalnanGothic';
+}
+
+
 //
 
 //keyframe 은 맨 아래에
@@ -250,14 +251,20 @@ body {
 
 
     #projects-wrap {
-      width: 400%;
-      overscroll-behavior: none;
-      display: flex;
-      flex-wrap: nowrap;
-      // background-color: pink;
-      position: relative;
-      z-index: 1;
-
+      width: 100%;
+      overflow-x: hidden;
+      .project-gsap {
+        width: 400%;
+        overscroll-behavior: none;
+        display: flex;
+        flex-wrap: nowrap;
+        // background-color: pink;
+        position: relative;
+        z-index: 1;
+        overflow:visible;
+  
+      }
+     
 
       .project {
         @include flex(center, center);
@@ -289,31 +296,46 @@ body {
           // margin-bottom: 50px;
           margin: 20px;
           color: #fff;
-
-          >h2 {
-            font-size: 2.5rem;
-            margin-bottom: 8px;
+          
+          .span {
+            @include bold-font();
+            top: 40px;
+            opacity: 0.2;
+            font-size: 20rem;
+            font-weight: 900;
+            position: absolute;
           }
 
           >h1 {
-            font-size: 2.4rem;
+            @include bold-font();
+            width: 500px;
+            font-size: 3.2rem;
             margin-bottom: 30px;
-            
+            > span {
+              @include font();
+              font-size: 1.2rem;
+            }
+
           }
 
           >p {
-            font-size: 1.1rem;
+            font-size: 0.95rem;
             padding: 20px 0px;
             line-height: 30px;
             letter-spacing: 1.2px;
+            text-align: justify;
           }
 
           .use {
+            display : flex;
+            flex-wrap: wrap;
             margin-top: 30px;
-            margin-left: 20px;
+            // margin-left: 20px;
 
             >li {
-              font-size: 1.5rem;
+              font-size: 1.2rem;
+              margin-right: 30px;
+              margin-bottom: 10px;
             }
           }
 
@@ -340,7 +362,7 @@ body {
             }
 
             >a {
-              padding: 45px 17px;
+              padding: 38px 10px;
               background-color: transparent;
               transition: all 0.5s;
               border: 1px solid #fff;
@@ -379,22 +401,25 @@ body {
 
     #footer {
       @include font();
-      @include flex( center, center);
+      @include flex(center, center);
       width: 100%;
       height: 100vh;
 
-      #footer-text{
+      #footer-text {
         color: black;
         position: absolute;
-        right: 150px;
+        right: 100px;
 
         > div {
-          margin-bottom: 40px;
-          > h2 {
+            margin-bottom: 40px;
+
+          >h2 {
             font-size: 2.2rem;
+            margin-bottom: 10px;
           }
+
           >h3 {
-            font-size: 1.5rem;
+            font-size: 1.3rem;
           }
         }
       }
@@ -448,7 +473,7 @@ body {
   height: 150px;
   position: absolute;
   bottom: 0;
-  
+
 
   .wave {
     width: 100%;
@@ -474,7 +499,7 @@ body {
       opacity: 0.5;
       animation-delay: -5s;
       bottom: 10px;
-      
+
     }
 
     &3 {
