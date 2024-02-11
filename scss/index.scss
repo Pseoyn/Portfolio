@@ -20,18 +20,14 @@
 }
 
 
-//
-
 //keyframe 은 맨 아래에
 body {
-  // background: url("/img/background_2.jpg") fixed;
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
 }
 
 #wrap {
-  width: 100vw;
   transition: all 0.5s;
 
   #border {
@@ -41,7 +37,6 @@ body {
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    // background-color: pink;
     border: 2px solid rgb(255, 255, 255);
     mix-blend-mode: difference;
     z-index: 1;

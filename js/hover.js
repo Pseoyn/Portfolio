@@ -1,3 +1,5 @@
+// 프로젝트 호버 효과
+
 $(function(){
     $(".screen-view img").hover(function(){
         var imgHeight = $(this).height();

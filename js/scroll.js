@@ -132,7 +132,7 @@ setTimeout(() => {
                 scrub: 2,
                 start: '-=300 top',
                 end: "-=100 top",
-                markers: true
+                // markers: true
             },
         })
 
@@ -146,7 +146,7 @@ setTimeout(() => {
                 scrub: 2,
                 start: '-=100 top',
                 end: "bottom bottom",
-                markers: true
+                // markers: true
             },
             backgroundColor: '#fff'
         })
